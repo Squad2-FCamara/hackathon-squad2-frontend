@@ -6,13 +6,15 @@ Clone o projeto
 ```bash
 git clone https://github.com/Squad2-FCamara/hackathon-squad2-frontend.git
 ```
+
+Acesse a pasta contendo o projeto
+```bash
+cd hackathon-squad2-frontend
+```
+
 Instale as dependências
 ```bash
 npm install
-```
-Acesse a pasta contendo o projeto
-```bash
-cd hackathon-squad2
 ```
 Rode o projeto
 ```bash

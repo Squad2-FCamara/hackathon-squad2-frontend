@@ -1,0 +1,27 @@
+.pageContainer {
+    display: flex;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+.sidebarContainer {
+    border: 3px solid black;
+    height: 100%;
+}
+
+.contentContainer {
+    border: 3px solid black;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+}
+
+.photo {
+    padding: 2px;
+    background: linear-gradient(100deg, #ff008e 0%, #ffcd1e 100%);
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+}

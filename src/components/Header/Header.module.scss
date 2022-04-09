@@ -1,0 +1,30 @@
+.header {
+   background-color: rgb(254, 68, 0);
+   color: rgb(255, 255, 255);
+   padding: 15px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.navList {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   cursor: pointer;
+   height: 100%;
+}
+
+.navList li {
+   margin-right: 40px;
+   list-style: none;
+}
+
+.inputBox{
+   height: 25px;
+   width: 30%;
+   border: 0;
+   border-radius: 4px;
+}

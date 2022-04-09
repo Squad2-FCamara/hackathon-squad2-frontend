@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
 import styles from './styles.module.scss'
-import persona from '../../../public/user-example.jpg'
+import persona from '/user-example.jpg'
 
 export function FriendProfile() {
     return (

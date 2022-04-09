@@ -1,0 +1,22 @@
+.cardColumn {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+}
+
+
+.card1 {
+    background-color: black;
+    color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.card2 {
+    background-color: blue;
+    color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+}

@@ -1,8 +1,13 @@
+import styles from "./styles.module.scss"
+
 export function Homepage() {
     return (
-        <div>
-            <p>O conteúdo desta página estará sendo definido em breve. Aguarde! :)</p>
+        <section>
+            <p>O conteúdo desta página estará sendo definido em breve. Aguarde! </p>
 
-        </div>
+            <div className={styles.mainContainer}>
+                <h2>Aqui temos uma tela!</h2>
+            </div>
+        </section>
     )
 }

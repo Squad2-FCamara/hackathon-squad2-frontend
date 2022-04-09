@@ -1,7 +1,7 @@
-import styles from './styles/app.scss'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Homepage } from './components/Homepage'
+import { FriendProfile } from './components/FriendProfile'
 
 
 export function App() {
@@ -10,6 +10,7 @@ export function App() {
       <Header />
       <Homepage />
       <Footer />
+      <FriendProfile />
     </>
   )
 }

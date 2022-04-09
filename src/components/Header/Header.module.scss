@@ -1,4 +1,18 @@
 .header {
    background-color: rgb(254, 68, 0);
-   color: rgb(255, 255, 255)
+   color: rgb(255, 255, 255);
+   height: 80px
+}
+
+.navList {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   list-style: none;
+   cursor: pointer;
+   height: 100%;
+}
+
+.navList li {
+   list-style: none;
 }

@@ -4,7 +4,13 @@ import style from "./Header.module.scss"
 function Header() {
     return (
         <header className={style.header}>
-            <h1>Este é o header!</h1>
+            <nav>
+                <ul className={style.navList}>
+                    <li>Home</li>
+                    <li>Fórum</li>
+                    <li>Dicas de estudos</li>
+                </ul>
+            </nav>
         </header>
     )
 }

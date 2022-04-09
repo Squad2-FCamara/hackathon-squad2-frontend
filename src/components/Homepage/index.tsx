@@ -1,6 +1,4 @@
-import React from 'react';
-
-function Homepage () {
+export function Homepage() {
     return (
         <div>
             <p>O conteúdo desta página estará sendo definido em breve. Aguarde! :)</p>
@@ -8,5 +6,3 @@ function Homepage () {
         </div>
     )
 }
-
-export default Homepage;

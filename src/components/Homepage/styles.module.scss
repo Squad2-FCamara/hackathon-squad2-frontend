@@ -1,12 +1,15 @@
 .pageContainer {
     display: flex;
-    justify-content: space-around;
+    padding: 2rem;
+    gap: 3rem;
+    justify-content: center;
     height: 90vh;
 }
 
 .sidebarContainer {
-    border: 3px solid black;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .contentContainer {
@@ -15,13 +18,16 @@
 
 .userContainer {
     display: flex;
+    gap: 1rem;
     align-items: center;
+    padding: 1rem;
 }
 
 .photo {
     padding: 2px;
     background: linear-gradient(100deg, #ff008e 0%, #ffcd1e 100%);
     border-radius: 50%;
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
+}
 }

@@ -1,13 +1,75 @@
+import { Button, Card } from "react-bootstrap"
+import DatePicker from 'sassy-datepicker';
+
 import styles from "./styles.module.scss"
+import eduarda from '/eduarda.jpg'
+import jeronimo from '/jeronimo.jpg'
+import luiza from '/luiza.jpg'
+import marcelina from '/marcelina.jpg'
 
 export function Homepage() {
     return (
-        <section>
-            <p>O conteúdo desta página estará sendo definido em breve. Aguarde! </p>
+        <main className={styles.pageContainer}>
+            <section className={styles.sidebarContainer}>
+                <Card style={{ width: '18rem' }} className={styles.userContainer}>
+                    <Card.Img variant="top" src={eduarda} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
+                    <Card.Title>Eduarda Mônica</Card.Title>
+                </Card>
 
-            <div className={styles.mainContainer}>
-                <h2>Aqui temos uma tela!</h2>
-            </div>
-        </section>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Body>
+                        <Card.Title>Perguntas no Fórum</Card.Title>
+                        <Card.Text>
+                            Feitas 50 <br />
+                            Respondidas 48
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+
+                <Card style={{ width: '18rem' }}>
+                    <Card.Body>
+                        <Card.Title>Perfis Salvos</Card.Title>
+                        <Card.Text>
+                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={marcelina} className={styles.photo} alt="Marcelina é uma mulher branca, tem os cabelos ondulados, está num ambiente interno e sorrindo." /> Marcelina Silva
+                        </Card.Text>
+                        <Card.Text>
+                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={luiza} className={styles.photo} alt="Luíza é uma mulher branca, tem os cabelos liso, está num ambiente externo usando batom vermelho e sorrindo." /> Luíza Fernanda
+                        </Card.Text>
+                        <Card.Text>
+                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={jeronimo} className={styles.photo} alt="Jerônimo é um homem negro, tem barba, está sério, num ambiente externo e usando um chapeu." /> Jerônimo Cristino
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </section>
+
+            <section className={styles.contentContainer}>
+                <div>
+                    <strong>Minha agenda</strong>
+                    <p>Aqui você encontra seus agendamentos e pode editar a sua disponibilidade</p>
+                </div>
+
+                <div className={styles.calendarContainer}>
+                    <DatePicker className={styles.datePicker} />
+
+                    <Card style={{ width: '20rem' }} >
+                        <Card.Body className={styles.availability}>
+                            <Card.Title>Horários disponíveis:</Card.Title>
+                            <Button href="#" variant="outline-dark">08:00 - 08:40</Button>
+                            <Button href="#" variant="outline-dark">10:20 - 10:50</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+
+                <Card style={{ width: '100%' }} >
+                    <Card.Body>
+                        <Card.Title>30 Outubro 2021 | início 16:00 - término 16:30</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted"><Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={luiza} className={styles.photo} alt="Luíza é uma mulher branca, tem os cabelos liso, está num ambiente externo usando batom vermelho e sorrindo." /> Luíza Fernanda</Card.Subtitle>
+                        <Card.Text>
+                            Gostaria de entender melhor como vocês estruturam a pesquisa em UX.
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </section >
+        </main >
     )
 }

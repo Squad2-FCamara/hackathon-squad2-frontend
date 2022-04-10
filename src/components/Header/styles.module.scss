@@ -1,16 +1,10 @@
 .header {
    background-color: rgb(254, 68, 0);
    color: rgb(255, 255, 255);
-   // padding: 15px 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-
 }
 
-#responsive-navbar-nav {
 
+#responsive-navbar-nav {
    cursor: pointer;
    height: 100%;
 }
@@ -18,9 +12,10 @@
 
 .inputBox{
    height: 25px;
-   width: 200px;
+   width: 400px;
    border: 0;
    border-radius: 4px;
+   margin-right: 50px;
 }
 
 .photo {

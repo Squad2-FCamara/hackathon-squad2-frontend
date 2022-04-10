@@ -3,7 +3,7 @@ import { Nav, Navbar, Container, Image, Form, FormControl } from "react-bootstra
 import { useNavigate } from "react-router-dom"
 import { SearchContextType, SearchContext } from "../../context/SearchContext"
 import styles from "./styles.module.scss"
-import persona from "/user-example.jpg"
+import persona from "/eduarda.jpg"
 
 export function Header() {
     const navigate = useNavigate()
@@ -16,10 +16,13 @@ export function Header() {
 
 
     return (
-        <header>
-            <Navbar collapseOnSelect expand="lg" className={styles.header}>
+        <header className={styles.header}>
+            <Navbar collapseOnSelect expand="lg" >
                 <Container>
                     <Navbar.Brand href="#home">LOGO</Navbar.Brand>
+                      
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
                     <Form onSubmit={handleSubmit}>
                             <FormControl
                                 type="search"
@@ -28,9 +31,7 @@ export function Header() {
                                 aria-label="Search"
                                 onChange={handleInput}
                             />
-                            </Form>  
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
+                            </Form>
                         <Nav className={styles.navList}>
                             <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#forum">Fórum</Nav.Link>

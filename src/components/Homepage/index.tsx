@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 import DatePicker from 'sassy-datepicker';
 
 import styles from "./styles.module.scss"
@@ -43,9 +43,33 @@ export function Homepage() {
             </section>
 
             <section className={styles.contentContainer}>
-                <h1>content</h1>
-                <DatePicker />
-            </section>
+                <div>
+                    <strong>Minha agenda</strong>
+                    <p>Aqui você encontra seus agendamentos e pode editar a sua disponibilidade</p>
+                </div>
+
+                <div className={styles.calendarContainer}>
+                    <DatePicker className={styles.datePicker} />
+
+                    <Card style={{ width: '20rem' }} >
+                        <Card.Body className={styles.availability}>
+                            <Card.Title>Horários disponíveis:</Card.Title>
+                            <Button href="#" variant="outline-dark">08:00 - 08:40</Button>
+                            <Button href="#" variant="outline-dark">10:20 - 10:50</Button>
+                        </Card.Body>
+                    </Card>
+                </div>
+
+                <Card style={{ width: '100%' }} >
+                    <Card.Body>
+                        <Card.Title>30 Outubro 2021 | início 16:00 - término 16:30</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted"><Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={luiza} className={styles.photo} alt="Luíza é uma mulher branca, tem os cabelos liso, está num ambiente externo usando batom vermelho e sorrindo." /> Luíza Fernanda</Card.Subtitle>
+                        <Card.Text>
+                            Gostaria de entender melhor como vocês estruturam a pesquisa em UX.
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </section >
         </main >
     )
 }

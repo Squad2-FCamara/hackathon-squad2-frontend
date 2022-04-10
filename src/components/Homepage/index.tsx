@@ -1,4 +1,6 @@
 import { Card } from "react-bootstrap"
+import DatePicker from 'sassy-datepicker';
+
 import styles from "./styles.module.scss"
 import eduarda from '/eduarda.jpg'
 import jeronimo from '/jeronimo.jpg'
@@ -42,6 +44,7 @@ export function Homepage() {
 
             <section className={styles.contentContainer}>
                 <h1>content</h1>
+                <DatePicker />
             </section>
         </main >
     )

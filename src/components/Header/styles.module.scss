@@ -1,6 +1,9 @@
 .header {
    background-color: rgb(254, 68, 0);
-
+   position: fixed;
+   width: 100%;
+   top: 0;
+   z-index: 99;
    a {
       padding: 0.5rem;
       align-self: center;
@@ -9,22 +12,17 @@
    }
 }
 
-#responsive-navbar-nav {
-   cursor: pointer;
-   height: 100%;
-}
-
 .inputBox {
-   height: 25px;
-   width: 400px;
+   height: 1.563rem;
+   width: 25rem;
    border: 0;
-   border-radius: 4px;
-   margin-right: 50px;
+   border-radius: 0.188rem;
+   margin-right: 3rem;
 }
 
 .photo {
-   padding: 2px;
-   border-radius: 50%;
+   padding: 0.125rem;
+   border-radius: 2rem;
    width: 3rem;
    height: 3rem;
 }

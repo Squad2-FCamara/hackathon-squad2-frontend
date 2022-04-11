@@ -1,6 +1,6 @@
 import { SyntheticEvent, useContext } from "react"
 import { Nav, Navbar, Container, Image, Form, FormControl } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { SearchContextType, SearchContext } from "../../context/SearchContext"
 import styles from "./styles.module.scss"
 import persona from "/eduarda.jpg"
@@ -17,7 +17,7 @@ export function Header() {
         <header className={styles.header}>
             <Navbar collapseOnSelect expand="lg" >
                 <Container>
-                    <Navbar.Brand href="#home">LOGO</Navbar.Brand>
+                    <NavLink to={"/"}>LOGO</NavLink>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -31,11 +31,11 @@ export function Header() {
                             />
                         </Form>
                         <Nav className={styles.navList}>
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#forum">Fórum</Nav.Link>
-                            <Nav.Link href="#tips">Dicas de estudos</Nav.Link>
-                            <Navbar.Brand href="#home">Icon</Navbar.Brand>
-                            <Image src={persona} className={styles.photo} />
+                            <NavLink to={"/"}>Home</NavLink>
+                            <NavLink to={"/"}>Fórum</NavLink>
+                            <NavLink to={"/"}>Dicas de estudos</NavLink>
+                            <NavLink to={"/"}>Icon</NavLink>
+                            <Image src={persona} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

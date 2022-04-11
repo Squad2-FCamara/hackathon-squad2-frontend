@@ -17,7 +17,6 @@ export function SearchProvider({ children }: ProviderProps) {
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setResult(e.target.value)
-        console.log(result)
     }
 
     return (

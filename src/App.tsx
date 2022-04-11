@@ -1,13 +1,5 @@
-import { Header } from './components/Header'
-import { Homepage } from './components/Homepage'
-import { SearchResults } from './components/SearchResults'
+import { RoutesApp } from './routes'
 
 export function App() {
-  return (
-    <>
-      <Header />
-      <SearchResults />
-      <Homepage />
-    </>
-  )
+  return <RoutesApp />
 }

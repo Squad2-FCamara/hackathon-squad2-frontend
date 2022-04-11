@@ -11,7 +11,6 @@ export function Header() {
     const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
         navigate("/resultado")
-        console.log('Tamo na outra página, maluco')
     }
 
 
@@ -20,10 +19,10 @@ export function Header() {
             <Navbar collapseOnSelect expand="lg" >
                 <Container>
                     <Navbar.Brand href="#home">LOGO</Navbar.Brand>
-                      
+
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                    <Form onSubmit={handleSubmit}>
+                        <Form onSubmit={handleSubmit}>
                             <FormControl
                                 type="search"
                                 placeholder="search"
@@ -31,7 +30,7 @@ export function Header() {
                                 aria-label="Search"
                                 onChange={handleInput}
                             />
-                            </Form>
+                        </Form>
                         <Nav className={styles.navList}>
                             <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#forum">Fórum</Nav.Link>

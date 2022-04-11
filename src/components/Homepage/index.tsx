@@ -45,7 +45,7 @@ export function Homepage() {
 
             <section className={styles.contentContainer}>
                 <div>
-                    <strong>Minha agenda</strong>
+                    <h1>Minha agenda</h1>
                     <p>Aqui você encontra seus agendamentos e pode editar a sua disponibilidade</p>
                 </div>
 

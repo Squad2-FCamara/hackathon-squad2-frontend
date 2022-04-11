@@ -1,16 +1,16 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Homepage } from './components/Homepage'
 import { SearchResults } from './components/SearchResults'
-import { Routes, Route } from 'react-router-dom'
 
 export function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/resultado' element={<SearchResults />}/>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/results" element={<SearchResults />} />
       </Routes>
-      <Homepage />
-    </>
+    </BrowserRouter>
   )
 }

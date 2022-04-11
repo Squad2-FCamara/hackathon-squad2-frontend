@@ -1,16 +1,20 @@
 .header {
    background-color: rgb(254, 68, 0);
-   color: rgb(255, 255, 255);
-}
 
+   a {
+      padding: 0.5rem;
+      align-self: center;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+   }
+}
 
 #responsive-navbar-nav {
    cursor: pointer;
    height: 100%;
 }
 
-
-.inputBox{
+.inputBox {
    height: 25px;
    width: 400px;
    border: 0;

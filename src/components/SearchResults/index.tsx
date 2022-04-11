@@ -1,9 +1,10 @@
-import { useContext, useEffect, useState } from 'react'
-import { Card, CardGroup } from 'react-bootstrap'
-import { SearchContext, SearchContextType } from '../../context/SearchContext'
-import api from '../../services/api'
-import styles from './styles.module.scss'
-import marcelina from '/marcelina.jpg'
+import { useContext, useEffect, useState } from 'react';
+import { Button, Card, CardGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { SearchContext, SearchContextType } from '../../context/SearchContext';
+import api from '../../services/api';
+import styles from './styles.module.scss';
+import marcelina from '/marcelina.jpg';
 
 export function SearchResults() {
     const [users, setUsers] = useState([])
@@ -39,6 +40,7 @@ export function SearchResults() {
                             This is a wider card with supporting text below as a natural lead-in to
                             additional content. This content is a little bit longer.
                         </Card.Text>
+                        <Button variant="outline-warning"><Link to={"/schedule"}>Marcar mentoria</Link></Button>
                     </Card.Body>
                 </Card>
                 <Card>

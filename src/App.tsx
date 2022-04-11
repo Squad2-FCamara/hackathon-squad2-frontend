@@ -1,12 +1,12 @@
 import { Header } from './components/Header'
 import { Homepage } from './components/Homepage'
-import { MainProfile } from './components/MainProfile'
+import { SearchResults } from './components/SearchResults'
 
 export function App() {
   return (
     <>
       <Header />
-      <MainProfile />
+      <SearchResults />
       <Homepage />
     </>
   )

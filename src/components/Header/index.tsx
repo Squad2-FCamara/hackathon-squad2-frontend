@@ -5,12 +5,14 @@ import { SearchContextType, SearchContext } from "../../context/SearchContext"
 import styles from "./styles.module.scss"
 import persona from "/eduarda.jpg"
 
+
+
 export function Header() {
     const navigate = useNavigate()
     const { handleInput } = useContext(SearchContext) as SearchContextType;
     const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        navigate("/results")
+        navigate("/results")    
     }
 
     return (

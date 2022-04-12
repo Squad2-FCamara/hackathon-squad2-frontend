@@ -16,6 +16,7 @@ export function SearchResults() {
             const data = res.data
             const results = data[0].Profile
             setUsers(results)
+            console.log(results)
         } catch (error) {
             console.log('DEU ERRO');
         } finally {

@@ -16,7 +16,8 @@ export function SearchProvider({ children }: ProviderProps) {
     const [result, setResult] = useState("")
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-        setResult(e.target.value)
+        setResult(e.target.value.toLowerCase())
+        
     }
 
     return (

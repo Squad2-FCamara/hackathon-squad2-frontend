@@ -16,17 +16,3 @@
     background: var(--text-secondary);
     border-radius: 1.5rem;
 }
-
-.availabilityButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--secondary-07);
-    border-radius: 1rem;
-    font-size: 1rem;
-    color: var(--black);
-
-    &:active {
-        background: var(--primary-06);
-    }
-}

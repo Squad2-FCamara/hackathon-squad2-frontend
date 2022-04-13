@@ -1,0 +1,13 @@
+.availabilityButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary-07);
+    border-radius: 1rem;
+    font-size: 1rem;
+    color: var(--black);
+
+    &:checked {
+        background: var(--primary-06);
+    }
+}

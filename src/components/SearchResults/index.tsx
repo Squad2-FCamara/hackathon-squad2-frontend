@@ -19,12 +19,11 @@ export function SearchResults() {
         try {
             const res = await api.get(`/profile/skill/${result}`)
             const data = res.data
-            const results = data[0].Profile
-            if (results.length) {
+            console.log(data)
+            if (data.length) {
                 setNotFound(false)
             }
-            setUsers(results)
-            console.log(results)
+            setUsers(data)
         } catch (error) {  
                 setNotFound(true)
             throw new Error(`Não foi possível encontrar resultado da busca`);
@@ -49,7 +48,6 @@ export function SearchResults() {
                 <Row lg={"auto"} md={2} xs={1} className={`g-4 ${styles.cardRow}`}>
                     {users.map((user: User, index) => {
                         return (
-                            <>
                             <Col key={index}>
                                 <Card style={{ width: '19.125rem', height: '30.188rem' }} className={styles.card} >
                                     <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={user.profile.photo} alt={`Foto de perfil ${user.profile.nickname}`} />
@@ -58,7 +56,7 @@ export function SearchResults() {
 
                                         <Card.Title className={styles.title}>Cargo</Card.Title>
                                         <Card.Text className={styles.text}>
-                                            {user.profile.description}
+                                            {user.profile.Role.name}
                                         </Card.Text>
                                         <Card.Title className={styles.title}>Senioridade</Card.Title>
                                         <Card.Text className={styles.text}>
@@ -66,7 +64,7 @@ export function SearchResults() {
                                         </Card.Text>
                                         <Card.Title className={styles.title}>Principais Skills</Card.Title>
                                         <Card.Text className={styles.text}>
-                                            {user.profile.description}
+                                            {user.profile.ProfileSkill.name}
                                         </Card.Text>
                                         <Button type="button" className={styles.button}>Agendar mentoria</Button>
 
@@ -75,33 +73,6 @@ export function SearchResults() {
 
                                 </Col>
                                 
-                                <Col key={index}>
-                                <Card style={{ width: '19.125rem', height: '30.188rem' }} className={styles.card} >
-                                    <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={user.profile.photo} alt={`Foto de perfil ${user.profile.nickname}`} />
-                                    <Card.Body className={styles.bodyStyle}>
-                                        <Card.Title className={styles.name}>{user.profile.nickname}</Card.Title>
-
-                                        <Card.Title className={styles.title}>Cargo</Card.Title>
-                                        <Card.Text className={styles.text}>
-                                            {user.profile.role}
-                                        </Card.Text>
-                                        <Card.Title className={styles.title}>Senioridade</Card.Title>
-                                        <Card.Text className={styles.text}>
-                                            {user.profile.seniority}
-                                        </Card.Text>
-                                        <Card.Title className={styles.title}>Principais Skills</Card.Title>
-                                        <Card.Text className={styles.text}>
-                                            {user.profile.skill}
-                                        </Card.Text>
-                                        <Button type="button" className={styles.button}>Agendar mentoria</Button>
-
-                                    </Card.Body>
-                                </Card>
-
-                                </Col>
-                                </>
-
- 
                         )
                     }
                     )

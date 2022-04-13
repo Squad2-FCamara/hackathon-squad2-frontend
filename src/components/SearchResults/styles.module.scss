@@ -52,4 +52,16 @@
     align-items: center;
     justify-content: center;
   }
+  .button:hover {
+    color: rgb(0, 0, 0, 1);
+    background: rgba(254, 68, 0, 1);
+  }
+  .button:active {
+    color: rgb(255, 255, 255);
+    background: rgba(185, 50, 0, 1);
+  }
+  .button:focus{
+      outline: none;
+      box-shadow: none;
+  }
 }

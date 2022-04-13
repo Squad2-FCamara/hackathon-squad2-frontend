@@ -13,7 +13,14 @@ export function Header() {
     const { handleInput } = useContext(SearchContext) as SearchContextType;
     const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        navigate("/results")    
+        navigate("/results")
+    }
+
+    const activeStyle = {
+        color: 'rgba(254, 187, 162, 1)'
+    }
+    const deactivateStyle = {
+        color: 'rgb(255, 255, 255, 1)'
     }
 
     return (
@@ -23,20 +30,42 @@ export function Header() {
                 <Form onSubmit={handleSubmit} className={styles.form}>
                     <FormControl
                         type="search"
-                        placeholder="search"
+                        placeholder="Pesquisar Sangue Laranja por nome, habilidades..."
                         className={styles.inputBox}
-                        aria-label="Search"
+                        aria-label="Campo de pesquisa"
                         onChange={handleInput}
                     />
-                    <Button className={styles.button}><Search/></Button>
+                    <Button className={styles.button}><Search /></Button>
                 </Form>
                 <Nav className={styles.navList}>
-                    <NavLink to={"/"}><HouseDoor className={styles.houseDoor} style={{fontSize: '2rem', color: 'white'}}/>Home</NavLink>
-                    <NavLink to={"/"}><People className={styles.people} style={{fontSize: '2rem', color: 'white'}} />Fórum</NavLink>
-                    <NavLink to={"/"}><Book className={styles.book} style={{fontSize: '2rem', color: 'white'}} />Dicas de estudos</NavLink>
-                    
-                    <NavLink to={"/"}><Bell className={styles.bell} style={{fontSize: '2rem', color: 'white'}} />Notificações</NavLink>
-                    <Image src={persona} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
+                    <NavLink
+                        to={"/"}
+                        style={({ isActive }) => isActive ? activeStyle : deactivateStyle}>
+                        <HouseDoor
+                            className={styles.houseDoor}
+                            style={{ fontSize: '2rem' }}
+                            aria-label="Página Inicial " />Home
+                    </NavLink>
+                    <NavLink to={"/"}>
+                        <People className={styles.people}
+                            style={{ fontSize: '2rem' }}
+                            aria-label="Fórum" />Fórum
+                    </NavLink>
+                    <NavLink to={"/"}>
+                        <Book
+                            className={styles.book}
+                            style={{ fontSize: '2rem' }}
+                            aria-label="Dicas de estudo" />Dicas de estudos
+                    </NavLink>
+
+                    <NavLink to={"/"}>
+                        <Bell
+                            className={styles.bell}
+                            style={{ fontSize: '2rem' }}
+                            aria-label="Notificações" />Notificações
+                    </NavLink>
+                    <Image src={persona} className={styles.photo}
+                        alt="" />
                 </Nav>
             </Navbar>
         </header>

@@ -15,20 +15,23 @@
       color: rgb(255, 255, 255);
    }
    .navbar {
+      width: 90%;
       display: flex;
       justify-content: space-around;
       align-items: center;
    }
+   .navList > * + * {
+     margin-left: 1.25rem;
+   }
+   .photo {
+      padding: 0.125rem;
+      border-radius: 2rem;
+      width: 4.25rem;
+      height: 4.25rem;
+   }
    
 }
 
-
-.photo {
-   padding: 0.125rem;
-   border-radius: 2rem;
-   width: 4.25rem;
-   height: 4.25rem;
-}
 
 .form {
    display: flex;

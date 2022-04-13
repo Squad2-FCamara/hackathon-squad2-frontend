@@ -1,6 +1,6 @@
 import { Button, Card, CardGroup, Form, ListGroup, ListGroupItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import DatePicker from "sassy-datepicker";
+import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
 import eduarda from "/eduarda.jpg";
 
@@ -14,7 +14,7 @@ export function Schedule() {
                     <Card style={{ border: '0' }} >
                         <Card.Body className={styles.calendarCardContainer}>
                             <Card.Title>Escolha o dia que mais dá match entre suas agendas</Card.Title>
-                            <DatePicker />
+                            <Calendar />
                         </Card.Body>
                     </Card>
 

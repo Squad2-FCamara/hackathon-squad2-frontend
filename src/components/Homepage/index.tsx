@@ -1,8 +1,11 @@
 import { Card } from "react-bootstrap";
-import DatePicker from 'sassy-datepicker';
+
+import styles from "./styles.module.scss";
+
 import { Appointment } from "../Appointment";
 import { AvailabilityLoggedUser } from "../AvailabilityLoggedUser";
-import styles from "./styles.module.scss";
+import { Calendar } from "../Calendar";
+
 import eduarda from '/eduarda.jpg';
 import jeronimo from '/jeronimo.jpg';
 import luiza from '/luiza.jpg';
@@ -51,7 +54,7 @@ export function Homepage() {
                 </div>
 
                 <div className={styles.calendarContainer}>
-                    <DatePicker className={styles.datePicker} />
+                    <Calendar />
 
                     <AvailabilityLoggedUser />
                 </div>

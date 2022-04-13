@@ -1,0 +1,60 @@
+.calendarContainer {
+    padding: 1rem;
+    background: var(--text-dark);
+    box-shadow: 0 0.3rem 0.3rem var(--background);
+    border-radius: 1rem;
+}
+
+.monthTitleContainer {
+    color: var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+}
+
+.monthTitle {
+    margin: 0;
+    align-self: center;
+    color: var(--gray-100);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.controller {
+    color: var(--primary-06);
+    border: none;
+
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+.weeksContainer {
+    color: var(--gray-400);
+    font-size: 1rem;
+}
+
+.dayToday {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-light);
+}
+
+.daysOtherMonths {
+    color: var(--gray-700);
+}
+
+.daySelected {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--black);
+    background: var(--primary-06);
+    border-radius: 0.5rem;
+}
+
+.dayButtons {
+    border-radius: 0.5rem;
+
+    &:hover {
+        background-color: var(--text-secondary);
+    }
+}

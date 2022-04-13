@@ -7,6 +7,7 @@ import styles from './styles.module.scss'
 type User = {
     profile: any
 }
+
 export function SearchResults() {
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
@@ -31,13 +32,15 @@ export function SearchResults() {
             setLoading(false)
         }
     }
-    useEffect(() => {
 
+    useEffect(() => {
         getSearchResults()
     }, [result])
+
     if (loading) {
         return null
     }
+
     return (
         <section>
             <h2 className={styles.sectionName}>Sangues Laranjas que mais se encaixam na sua pesquisa:</h2>
@@ -97,8 +100,6 @@ export function SearchResults() {
 
                                 </Col>
                                 </>
-
-
 
  
                         )

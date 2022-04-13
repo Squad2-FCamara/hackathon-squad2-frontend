@@ -2,9 +2,32 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --gray-100: #F8F9FA;
+  --gray-300: #DEE2E6;
+  --gray-400: #CED4DA;
+  --gray-700: #495057;
+  --gray-800: #343A40;
+
+  --primary-05: #FE662E;
+  --primary-06: #FE885C;
+
+  --secondary-03: #36357E;
+  --secondary-04: #5251A2;
+  --secondary-07: #A8A8D0;
+
+  --background: #191C1F;
+  --text-light: #E3E9EF;
+  --text-dark: #141619;
+  --text-secondary: #41464B;
 }
 
 body {
-  font-family: "Metropolis";
-  height: 100vh;
+  background: var(--gray-800);
 }

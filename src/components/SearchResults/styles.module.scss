@@ -1,3 +1,12 @@
+.sectionName {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.313rem;
+  line-height: 100%;
+  position: sticky;
+  margin: 2rem;
+}
+
 .cardRow {
   display: flex;
   flex-direction: row;
@@ -60,8 +69,14 @@
     color: rgb(255, 255, 255);
     background: rgba(185, 50, 0, 1);
   }
-  .button:focus{
-      outline: none;
-      box-shadow: none;
+  .button:focus {
+    outline: none;
+    box-shadow: none;
   }
 }
+
+@media screen and (min-width: 800px) {
+    .container {
+      margin: 1em 2em;
+    }
+  } 

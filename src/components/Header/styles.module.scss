@@ -1,53 +1,59 @@
 .header {
-   display: flex;
-   justify-content: center;
-   background: rgba(25, 28, 31, 1);
-   position: sticky;
-   width: 100%;
-   top: 0;
-   z-index: 99;
-   a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0.5rem;
-      text-decoration: none;
-      color: rgb(255, 255, 255);
-   }
-   .navbar {
-      width: 90%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-   }
-   .navList > * + * {
-     margin-left: 1.25rem;
-   }
-   .photo {
-      padding: 0.125rem;
-      border-radius: 2rem;
-      width: 4.25rem;
-      height: 4.25rem;
-   }
-   
+  display: flex;
+  justify-content: center;
+  background: rgba(25, 28, 31, 1);
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+  .navbar {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .navList > * + * {
+    margin-left: 1.25rem;
+  }
+  .photo {
+    padding: 0.125rem;
+    border-radius: 2rem;
+    width: 4.25rem;
+    height: 4.25rem;
+  }
 }
 
-
 .form {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   
-   .inputBox {
-      height: 2.421rem;
-      width: 30rem;
-      border: 0;
-      border-radius: 0.188rem;
-   }
-   .button {
-      height: 2.421rem;
-      border: none;
-      background: rgba(54, 53, 126, 1);
-      text-align: center;
-   }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .inputBox {
+    height: 2.421rem;
+    width: 30rem;
+    box-sizing: border-box;
+    border: 1.05px solid rgb(206, 212, 218);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .button {
+    height: 2.421rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: rgba(54, 53, 126, 1);
+    text-align: center;
+  }
+
+  .button:hover {
+    color: rgb(0, 0, 0);
+    background: rgba(254, 68, 0, 1);
+  }
 }

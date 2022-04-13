@@ -1,12 +1,13 @@
-import { Button, Card } from "react-bootstrap"
+import { Card } from "react-bootstrap";
 import DatePicker from 'sassy-datepicker';
-
 import { Appointment } from "../Appointment";
-import styles from "./styles.module.scss"
-import eduarda from '/eduarda.jpg'
-import jeronimo from '/jeronimo.jpg'
-import luiza from '/luiza.jpg'
-import marcelina from '/marcelina.jpg'
+import { AvailabilityLoggedUser } from "../AvailabilityLoggedUser";
+import styles from "./styles.module.scss";
+import eduarda from '/eduarda.jpg';
+import jeronimo from '/jeronimo.jpg';
+import luiza from '/luiza.jpg';
+import marcelina from '/marcelina.jpg';
+
 
 export function Homepage() {
     return (
@@ -52,13 +53,7 @@ export function Homepage() {
                 <div className={styles.calendarContainer}>
                     <DatePicker className={styles.datePicker} />
 
-                    <Card style={{ width: '20rem' }} >
-                        <Card.Body className={styles.availability}>
-                            <Card.Title>Horários disponíveis:</Card.Title>
-                            <Button href="#" variant="outline-dark">08:00 - 08:40</Button>
-                            <Button href="#" variant="outline-dark">10:20 - 10:50</Button>
-                        </Card.Body>
-                    </Card>
+                    <AvailabilityLoggedUser />
                 </div>
 
                 <Appointment />

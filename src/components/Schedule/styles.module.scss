@@ -3,16 +3,33 @@
     justify-content: center;
     padding: 2rem;
     gap: 2rem;
+    background: var(--gray-800);
+    height: 92vh;
 }
 
 .scheduleContainer {
     display: flex;
     flex-direction: column;
+    padding: 3rem;
+    color: var(--text-light);
+    background: var(--background);
+    border-radius: 1.7rem;
+
+    h1 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        text-shadow: 0px 4px 4px var(--background);
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
 
     .calendarContainer {
         padding: 1rem;
 
         .calendarCardContainer {
+            background: var(--background);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -21,20 +38,45 @@
     }
 
     .availabilityContainer {
+        background: var(--background);
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
+        height: 1.3rem;
 
         .availabilityCardContainer {
-            background-color: #F5F5F5;
-            border-radius: 1rem;
-            height: 19rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            width: 12rem;
+            height: 16rem;
+            background: var(--text-secondary);
+            border-radius: 1.5rem;
+        }
+
+        .availabilityButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--secondary-07);
+            border-radius: 1rem;
+            font-size: 1rem;
+            color: var(--black);
+
+            &:active {
+                background: var(--primary-06);
+            }
         }
     }
+}
+
+.formStyle {
+    width: 36.5rem;
+    height: 7rem;
+    background: var(--text-secondary);
+    border-radius: 1.5rem;
+    color: var(--gray-100);
 }
 
 
@@ -47,6 +89,9 @@
         align-items: center;
         padding: 1rem;
         gap: 1rem;
+        background: var(--background);
+        border-radius: 1.5rem;
+        color: var(--gray-100);
 
         .photo {
             padding: 2px;
@@ -56,4 +101,14 @@
             height: 7rem;
         }
     }
+}
+
+.buttonStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: var(--primary-05);
+    border-radius: 1rem;
 }

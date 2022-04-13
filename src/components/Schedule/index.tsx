@@ -9,24 +9,23 @@ export function Schedule() {
         <main className={styles.pageContainer}>
             <section className={styles.scheduleContainer}>
                 <h1>Bora agendar uma mentoria?</h1>
+                <h2>Escolha o dia que mais dá match entre suas agendas</h2>
 
                 <CardGroup className={styles.calendarContainer}>
                     <Card style={{ border: '0' }} >
                         <Card.Body className={styles.calendarCardContainer}>
-                            <Card.Title>Escolha o dia que mais dá match entre suas agendas</Card.Title>
                             <Calendar />
                         </Card.Body>
                     </Card>
 
                     <Card style={{ border: '0' }}>
                         <Card.Body className={styles.availabilityContainer}>
-                            <Card.Title>Escolha o horário</Card.Title>
+                            <Card.Title style={{ fontWeight: '700', fontSize: '1rem' }}>Escolha o melhor horário</Card.Title>
                             <Card.Body className={styles.availabilityCardContainer}>
-                                <Card.Title>Horários disponíveis:</Card.Title>
-                                <Button href="#" variant="outline-dark">
+                                <Button href="#" variant="outline-dark" className={styles.availabilityButton}>
                                     08:00 - 08:40
                                 </Button>
-                                <Button href="#" variant="outline-dark">
+                                <Button href="#" variant="outline-dark" className={styles.availabilityButton}>
                                     10:20 - 10:50
                                 </Button>
                             </Card.Body>
@@ -34,11 +33,11 @@ export function Schedule() {
                     </Card>
                 </CardGroup>
 
-                <h2>Assunto da mentoria</h2>
+                <h2 style={{ fontWeight: '700' }}>Qual é o assunto?</h2>
                 <Form.Control
                     type="text"
-                    placeholder="Conte ao seu mentor sobre o que será a conversa"
-                    style={{ height: '5rem' }}
+                    placeholder="Escreva aqui o assunto da mentoria"
+                    className={styles.formStyle}
                 />
             </section>
 
@@ -48,20 +47,20 @@ export function Schedule() {
                     <Card.Title>Eduarda Mônica</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Desenvolvedora FullStack</Card.Subtitle>
                     <Card.Title >Mentoria</Card.Title>
-                    <ListGroup className="list-group-flush">
-                        <ListGroupItem>
+                    <ListGroup className="list-group-flush" >
+                        <ListGroupItem className={styles.userContainer}>
                             <p>
                                 30 Outubro 2021 <br />
                                 <strong>Data</strong>
                             </p>
                         </ListGroupItem>
-                        <ListGroupItem>
+                        <ListGroupItem className={styles.userContainer}>
                             <p>
                                 16:00 - 16:30 <br />
                                 <strong>Horário</strong>
                             </p>
                         </ListGroupItem>
-                        <ListGroupItem>
+                        <ListGroupItem className={styles.userContainer}>
                             <p>
                                 Teams <br />
                                 <strong>Onde?</strong>
@@ -69,7 +68,7 @@ export function Schedule() {
                         </ListGroupItem>
                     </ListGroup>
 
-                    <Button variant="outline-dark"><Link to={"/schedule"}>Marcar mentoria</Link></Button>
+                    <Button variant="outline-dark" className={styles.buttonStyle}>Marcar mentoria</Button>
                 </Card>
             </section>
         </main>

@@ -1,27 +1,25 @@
-import { ChangeEvent, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
-export type SearchContextType = {
-    result: string,
-    handleInput: (e: ChangeEvent<HTMLInputElement>) => void
-}
+import api from "../services/api";
 
-export const SearchContext = createContext<SearchContextType | null>(null)
+export const SearchContext = createContext<any>(undefined);
 
-type ProviderProps = {
-    children: JSX.Element
-}
+export function SearchProvider({ children }: any) {
+    const [searchResult, setSearchResult] = useState([])
 
-
-export function SearchProvider({ children }: ProviderProps) {
-    const [result, setResult] = useState("")
-
-    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-        setResult(e.target.value.toLowerCase())
-        
+    const getSearchResult = async (searchText: any) => {
+        try {
+            const res = await api.get(`/profile/skill/${searchText.toLowerCase()}`)
+            const data = res.data
+            console.log(data)
+            setSearchResult(data)
+        } catch (error) {
+            console.log('Não foi possível encontrar o resultado da busca...')
+        }
     }
 
     return (
-        <SearchContext.Provider value={{ result, handleInput }}>
+        <SearchContext.Provider value={{ searchResult, getSearchResult }}>
             {children}
         </SearchContext.Provider>
     )

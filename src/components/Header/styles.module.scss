@@ -1,7 +1,8 @@
+
 .header {
   display: flex;
   justify-content: center;
-  background: rgba(25, 28, 31, 1);
+  background: var(--background);
   position: sticky;
   width: 100%;
   top: 0;
@@ -12,7 +13,7 @@
     align-items: center;
     padding: 0.5rem;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: var(--white)
   }
   .navbar {
     width: 90%;
@@ -20,8 +21,14 @@
     justify-content: space-around;
     align-items: center;
   }
+  .navList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .navList > * + * {
     margin-left: 1.25rem;
+  
   }
   .photo {
     padding: 0.125rem;
@@ -42,8 +49,8 @@
     width: 32.813rem;
     padding-right: 2.2rem;
     box-sizing: border-box;
-    border: 1.05px solid rgb(206, 212, 218);
-    background-color: white;
+    border: 1.05px solid var( --gray-400);
+    background-color: var(--white);
     border-radius: 1rem;
   }
 

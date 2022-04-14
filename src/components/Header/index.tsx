@@ -1,19 +1,34 @@
 import { SyntheticEvent, useContext } from "react"
-import { Nav, Navbar, Image, Form, FormControl, Button } from "react-bootstrap"
+import { Nav, Navbar, Image, Form, FormControl, Button, InputGroup } from "react-bootstrap"
 import { NavLink, useNavigate } from "react-router-dom"
-import { SearchContextType, SearchContext } from "../../context/SearchContext"
+import { SearchContext } from "../../context/SearchContext"
 import { Bell, Book, HouseDoor, People, Search } from "react-bootstrap-icons"
 import styles from "./styles.module.scss"
 import persona from "/eduarda.jpg"
+import logo from "/logo.png"
+import NavbarToggle from "react-bootstrap/esm/NavbarToggle"
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse"
 
 
 
 export function Header() {
+    const { getSearchResult } = useContext(SearchContext);
     const navigate = useNavigate()
-    const { handleInput } = useContext(SearchContext) as SearchContextType;
-    const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
-        navigate("/results")
+
+        const form = e.target
+        const formData = new FormData(form)
+        console.log(formData);
+        
+        const text = formData.get('search-input')
+        console.log(text);
+        
+        await getSearchResult(text)
+
+        form.reset()
+        navigate('/results')
     }
 
     const activeStyle = {
@@ -25,17 +40,20 @@ export function Header() {
 
     return (
         <header className={styles.header}>
-            <Navbar collapseOnSelect expand="lg" className={styles.navbar} >
-                <NavLink to={"/"}>LOGO</NavLink>
+            <Navbar collapseOnSelect expand="sm" className={styles.navbar} >
+            <NavLink to={"/"}><img src={logo} /></NavLink>
+                <NavbarToggle aria-controls="responsive-navbar-nav"/>
+                <Navbar.Collapse id="responsive-navbar-nav">
                 <Form onSubmit={handleSubmit} className={styles.form}>
                     <FormControl
                         type="search"
                         placeholder="Pesquisar Sangue Laranja por nome, habilidades..."
                         className={styles.inputBox}
                         aria-label="Campo de pesquisa"
-                        onChange={handleInput}
+                        // onChange={handleInput}
+                        name="search-input"
                     />
-                    <Button className={styles.button}><Search /></Button>
+                    <Search style={{ position: 'absolute', right: '1rem' }} />
                 </Form>
                 <Nav className={styles.navList}>
                     <NavLink
@@ -64,9 +82,10 @@ export function Header() {
                             style={{ fontSize: '2rem' }}
                             aria-label="Notificações" />Notificações
                     </NavLink>
-                    <Image src={persona} className={styles.photo}
-                        alt="" />
+                    
                 </Nav>
+                </Navbar.Collapse>
+                <Image src={persona} className={styles.photo} alt="Foto de perfil do usuário logado" />
             </Navbar>
         </header>
     )

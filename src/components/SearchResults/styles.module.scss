@@ -4,7 +4,8 @@
   font-size: 1.313rem;
   line-height: 100%;
   position: sticky;
-  margin: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 
 .cardRow {
@@ -50,6 +51,9 @@
   .button {
     font-size: 1rem;
   }
+  a {
+    text-decoration: none;
+  }
   .button {
     background-color: rgb(254, 102, 46, 1);
     color: rgb(0, 0, 0, 1);
@@ -76,7 +80,7 @@
 }
 
 @media screen and (min-width: 800px) {
-    .container {
-      margin: 1em 2em;
-    }
-  } 
+  .container {
+    margin: 1em 2em;
+  }
+}

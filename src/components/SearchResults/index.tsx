@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 import { SearchContext } from '../../context/SearchContext'
 import styles from './styles.module.scss'
@@ -37,7 +38,7 @@ export function SearchResults() {
                                             return item.skill.name.toUpperCase()
                                         }).join(' | ')}
                                     </Card.Text>
-                                    <Button type="button" className={styles.button}>Agendar mentoria</Button>
+                                    <Link to={"/schedule"}><Button type="button" className={styles.button}>Agendar mentoria</Button></Link>
 
                                 </Card.Body>
                             </Card>

@@ -35,25 +35,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
 
   .inputBox {
     height: 2.421rem;
-    width: 30rem;
+    width: 32.813rem;
+    padding-right: 2.2rem;
     box-sizing: border-box;
     border: 1.05px solid rgb(206, 212, 218);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  .button {
-    height: 2.421rem;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background: rgba(54, 53, 126, 1);
-    text-align: center;
+    background-color: white;
+    border-radius: 1rem;
   }
 
-  .button:hover {
-    color: rgb(0, 0, 0);
-    background: rgba(254, 68, 0, 1);
-  }
+  
 }

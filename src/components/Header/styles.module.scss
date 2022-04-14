@@ -47,5 +47,15 @@
     border-radius: 1rem;
   }
 
-  
+}
+
+
+@media  (max-width: 480px) {
+  body {
+    background-color: aqua;
+  }
+ .photo {
+  width: 2rem;
+  height: 2rem;
+ }
 }

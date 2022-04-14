@@ -6,6 +6,8 @@ import { Bell, Book, HouseDoor, People, Search } from "react-bootstrap-icons"
 import styles from "./styles.module.scss"
 import persona from "/eduarda.jpg"
 import logo from "/logo.png"
+import NavbarToggle from "react-bootstrap/esm/NavbarToggle"
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse"
 
 
 
@@ -38,8 +40,10 @@ export function Header() {
 
     return (
         <header className={styles.header}>
-            <Navbar collapseOnSelect expand="lg" className={styles.navbar} >
-                <NavLink to={"/"}><img src={logo} /></NavLink>
+            <Navbar collapseOnSelect expand="sm" className={styles.navbar} >
+            <NavLink to={"/"}><img src={logo} /></NavLink>
+                <NavbarToggle aria-controls="responsive-navbar-nav"/>
+                <Navbar.Collapse id="responsive-navbar-nav">
                 <Form onSubmit={handleSubmit} className={styles.form}>
                     <FormControl
                         type="search"
@@ -78,8 +82,10 @@ export function Header() {
                             style={{ fontSize: '2rem' }}
                             aria-label="Notificações" />Notificações
                     </NavLink>
-                    <Image src={persona} className={styles.photo} alt="Foto de perfil do usuário logado" />
+                    
                 </Nav>
+                </Navbar.Collapse>
+                <Image src={persona} className={styles.photo} alt="Foto de perfil do usuário logado" />
             </Navbar>
         </header>
     )

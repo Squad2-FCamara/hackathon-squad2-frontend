@@ -1,10 +1,10 @@
 import { Button, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
-import { format, parseJSON } from "date-fns";
-import { ptBR } from "date-fns/locale";
 import api from "../../services/api";
 import styles from "./styles.module.scss";
 import empty from "../../img/schedules-empty.svg";
+import { formatDay } from "../../utils/formatDay";
+import { formatHour } from "../../utils/formatHour";
 
 type Appointments = [
     {
@@ -43,19 +43,11 @@ type Profile = {
 
 export function Appointments() {
     const { data } = useQuery<Appointments>('appointments', async () => {
-        const response = await api.get('http://localhost:4000/user/schedule/1')
+        const response = await api.get('/user/schedule/1')
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute
     })
-
-    function formatDay(date: Date) {
-        return format(parseJSON(date), "dd MMMM yyyy", { locale: ptBR })
-    }
-
-    function formatHour(date: Date) {
-        return format(parseJSON(date), "kk:mm", { locale: ptBR })
-    }
 
     return (
         <>

@@ -1,14 +1,22 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .section {
  color: var(--gray-100);
- height: 100%;
+ height: calc(100vh -  110px)
 }
 
 .msgError {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  // align-content: space-between;
+  height: 100%;
 }
 
 .sectionName {

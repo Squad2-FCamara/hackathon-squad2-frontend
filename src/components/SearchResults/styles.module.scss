@@ -1,3 +1,7 @@
+.section {
+ color: var(--gray-100)
+}
+
 .sectionName {
   font-weight: 700;
   font-style: normal;
@@ -23,13 +27,13 @@
     padding: 2rem;
     border-radius: 1.5rem;
     border: none;
-    background: rgba(25, 28, 31, 1);
-    color: rgba(248, 249, 250, 1);
+    background: var(--background);
+    color: var(--gray-100);
   }
   .photo {
     align-content: center;
     padding: 2px;
-    border: 4px solid rgb(168, 168, 208);
+    border: 4px solid var(  --secondary-07);
     width: 6.875rem;
     height: 6.875rem;
   }
@@ -55,8 +59,8 @@
     text-decoration: none;
   }
   .button {
-    background-color: rgb(254, 102, 46, 1);
-    color: rgb(0, 0, 0, 1);
+    background-color: var(--primary-05);
+    color: var(--black);
     border: none;
     border-radius: 10rem;
     width: 13.313rem;
@@ -66,12 +70,12 @@
     justify-content: center;
   }
   .button:hover {
-    color: rgb(0, 0, 0, 1);
-    background: rgba(254, 68, 0, 1);
+    color: var(--black);
+    background: var(--primary-01);
   }
   .button:active {
-    color: rgb(255, 255, 255);
-    background: rgba(185, 50, 0, 1);
+    color: var(--white);
+    background: var(--primary-07);
   }
   .button:focus {
     outline: none;

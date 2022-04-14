@@ -4,54 +4,59 @@ import api from "../../services/api";
 import styles from "./styles.module.scss";
 import luiza from '/luiza.jpg';
 
-type Appointment = {
-    user: {
-        id: number,
-        name: string,
-    },
+type UserSchedule = {
     schedule: {
         id: number,
-        day: string,
-        start_time: string,
-        end_time: string,
-        description: string,
-        UserSchedule: [
-            {
-                user: {
-                    id: number,
-                    name: string,
-                    email: string,
-                }
-            }
-        ]
+        day: Date,
+        start_time: Date,
+        end_time: Date,
+        description: string
+    }
+}
+
+type Appointment = {
+    user: {
+        name: string,
+        id: number,
+        email: string,
+        UserSchedule: [UserSchedule]
     }
 }
 
 export function Appointment() {
-    const { data, isFetching } = useQuery<Appointment[]>('appointments', async () => {
-        const response = await api.get('http://localhost:4000/user/schedule/2')
-
+    const { data, isFetching } = useQuery<Appointment>('appointments', async () => {
+        const response = await api.get('http://localhost:4000/user/schedule/1')
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute
     })
 
+    if (data) {
+        var {
+            user: {
+                name: userName,
+                id: userId,
+                email: userEmail,
+                UserSchedule: [{ schedule: schedule }]
+            }
+        } = data;
+    }
+
     return (
         <section>
             {isFetching && <p>Carregando...</p>}
-            {data?.map(appointment => {
+            {data?.user.UserSchedule.map(item => {
                 return (
-                    <Card style={{ width: '100%' }} key={appointment.schedule.id}>
+                    <Card style={{ width: '100%' }}>
                         <Card.Body >
-                            <Card.Title>{appointment.schedule.day} | início {appointment.schedule.start_time} - término {appointment.schedule.end_time}</Card.Title>
-                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={luiza} className={styles.photo} alt={appointment.user.name} />
-                            {appointment.schedule.UserSchedule?.map(schedule => {
-                                if (schedule.user.id != appointment.user.id) {
-                                    return schedule.user.name
-                                }
-                            })}
+                            <Card.Title>{`${item.schedule.day} | início ${item.schedule.start_time} - término ${item.schedule.end_time}`}</Card.Title>
+                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={luiza} className={styles.photo} alt={userName} />
+
+                            {/* if (schedule.user.id != appointment.user.id) { */}
+                            {/* return schedule.user.name */}
+                            {/* }  */}
                             <Card.Text>
-                                {appointment.schedule.description}
+                                {item.schedule.description}
                             </Card.Text>
                         </Card.Body>
                     </Card>

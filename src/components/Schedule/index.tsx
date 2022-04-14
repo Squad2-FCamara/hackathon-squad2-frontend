@@ -1,5 +1,5 @@
 import { Button, Card, CardGroup, Form, ListGroup, ListGroupItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
 import eduarda from "/eduarda.jpg";
@@ -18,19 +18,7 @@ export function Schedule() {
                         </Card.Body>
                     </Card>
 
-                    <Card style={{ border: '0' }}>
-                        <Card.Body className={styles.availabilityContainer}>
-                            <Card.Title style={{ fontWeight: '700', fontSize: '1rem' }}>Escolha o melhor horário</Card.Title>
-                            <Card.Body className={styles.availabilityCardContainer}>
-                                <Button href="#" variant="outline-dark" className={styles.availabilityButton}>
-                                    08:00 - 08:40
-                                </Button>
-                                <Button href="#" variant="outline-dark" className={styles.availabilityButton}>
-                                    10:20 - 10:50
-                                </Button>
-                            </Card.Body>
-                        </Card.Body>
-                    </Card>
+                    <AvailabilityFriendProfile />
                 </CardGroup>
 
                 <h2 style={{ fontWeight: '700' }}>Qual é o assunto?</h2>

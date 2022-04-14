@@ -1,0 +1,18 @@
+.availabilityContainer {
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    height: 1.3rem;
+}
+
+.availabilityCardContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 12rem;
+    height: 16rem;
+    background: var(--text-secondary);
+    border-radius: 1.5rem;
+}

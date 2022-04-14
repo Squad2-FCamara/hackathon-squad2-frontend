@@ -1,0 +1,49 @@
+.imgContainer {
+    height: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    gap: 1rem;
+
+    .img {
+        height: 10rem;
+        width: 15rem;
+    }
+}
+
+.appointmentContainer {
+    display: flex;
+    border-radius: 1.5rem;
+    background: var(--text-secondary);
+    padding: 2rem;
+
+    .dateTitle {
+        display: flex;
+        font-weight: 700;
+        gap: 5rem;
+    }
+
+    .buttonsContainer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        :first-child {
+            padding: 0.25rem 2.5rem;
+            background: var(--gray-100);
+            border: 1px solid var(--gray-800);
+            border-radius: 1rem;
+            color: var(--gray-700);
+        }
+
+        :last-child {
+            padding: 0.25rem 2.5rem;
+            background: var(--primary-06);
+            border: 1px solid var(--gray-800);
+            border-radius: 1rem;
+            color: var(--black);
+        }
+    }
+}

@@ -34,6 +34,7 @@
     .fontSize {
         font-size: 3rem;
     }
+
     .textMessage {
         font-size: 1.25rem;
     }
@@ -53,9 +54,11 @@
 .wrapperCards {
     display: flex;
     flex-direction: column;
-    > * + * {
+
+    >*+* {
         margin-top: 1.5rem;
     }
+
     .genericCard {
         background: var(--background);
         border-radius: 1.5rem;
@@ -65,11 +68,11 @@
     }
 }
 
-
 .title {
     font-size: 1.5rem;
     font-weight: 700;
 }
+
 .textMessage {
     font-size: '1.25rem';
 }
@@ -119,50 +122,57 @@
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
+
         .wrapperCards {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
-            > * + * {
-                margin-top:0;
+
+            >*+* {
+                margin-top: 0;
             }
+
             .genericCard {
                 padding: 0;
                 width: 10.625rem;
                 height: 12.687rem;
-                
-                .title, .textCard {
+
+                .title,
+                .textCard {
                     font-size: 0.75rem;
                 }
-                
+
                 .savedProfiles {
-                    font-size: 12px;
-        
-                 .photo {
-                    margin-right: .3125rem;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                 }
+                    font-size: 0.75rem;
+
+                    .photo {
+                        margin-right: .3125rem;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                    }
                 }
             }
-        } 
+        }
     }
     .messageContainer {
         width: 100%;
-        height: 8.75rem ;
+        height: 8.75rem;
         font-size: 0.5rem;
+
         .image {
             height: 6rem;
             width: 7rem;
         }
+
         .FontSize {
             font-size: 1.31rem;
         }
+
         .textMessage {
             font-size: 0.875rem;
         }
-        
+
     }
     .contentContainer {
         flex-direction: column;
@@ -172,29 +182,36 @@
         .scheduleContainer {
             flex-direction: column;
             flex-wrap: wrap-reverse;
-            font-size: 13px;
+            font-size: 0.8rem;
             width: 100%;
             padding: 1.5rem 1rem;
             gap: 0;
-            > * + * {
+
+            >*+* {
                 margin-top: 1.25rem;
             }
-            .title{
-                font-size: 16px;
+
+            .title {
+                font-size: 1rem;
             }
+
             .calendarContainer {
                 flex-direction: column;
-                > * + * {
-                    margin-top:1.5rem;
+
+                >*+* {
+                    margin-top: 1.5rem;
                 }
             }
         }
         .appointmentsContainer {
             flex-direction: column;
-            font-size: 10px;
-            .title{
-                font-size: 16px;
+            padding: 1rem;
+            gap: 0;
+
+            >*+* {
+                margin-top: 1rem;
             }
+
         }
-    } 
+    }
 }

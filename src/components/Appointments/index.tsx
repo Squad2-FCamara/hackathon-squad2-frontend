@@ -42,9 +42,9 @@ type Profile = {
 }
 
 export function Appointments() {
-    const mentorId = localStorage.getItem('mentorId')
+    const userId = localStorage.getItem('userId')
     const { data } = useQuery<Appointments>('appointments', async () => {
-        const response = await api.get(`/user/schedule/${mentorId}`)
+        const response = await api.get(`/user/schedule/${userId}`)
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute

@@ -4,6 +4,8 @@ import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
 import eduarda from "../../img/eduarda.jpg";
 import api from '../../services/api'
+import { Link } from 'react-router-dom';
+import axios from "axios";
 
 export function Schedule() {
 
@@ -36,11 +38,12 @@ export function Schedule() {
             userId2: mentorId
         }
 
+        
         console.log(bodyRequest)
-        const response = api.post('/user/schedule', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(bodyRequest),
+        const response =  axios({
+            method: 'post',
+            url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
+            data: bodyRequest
         })
         console.log(response)
     }
@@ -122,8 +125,9 @@ export function Schedule() {
                         <Card.Text>
                             Gostaria de entender melhor como usar o Java.
                         </Card.Text>
-
-                        <Button variant="outline-dark" className={styles.buttonStyle} onClick={scheduleMentor}>Marcar mentoria</Button>
+                        <Link to={"/"}>
+                            <Button variant="outline-dark" className={styles.buttonStyle} onClick={scheduleMentor}>Marcar mentoria</Button>
+                        </Link>
                     </Card>
                 </Card>
             </section>

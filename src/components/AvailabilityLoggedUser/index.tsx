@@ -2,7 +2,7 @@ import { Badge, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 import api from "../../services/api";
 import { formatHour } from "../../utils/formatHour";
-import { AvailabilityProfile } from "../HoursButton";
+import { AvailabilityProfile } from "../AvailabilityFriendProfile";
 import styles from "./styles.module.scss";
 
 // passar a lógica do hour button para o hour list e renderizar na homepage

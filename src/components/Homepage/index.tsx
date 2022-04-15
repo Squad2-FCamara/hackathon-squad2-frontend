@@ -11,6 +11,8 @@ import luiza from '../../img/luiza.jpg';
 import marcelina from '../../img/marcelina.jpg';
 import owl from '../../img/happy-owl.svg'
 
+localStorage.setItem('userId', '2'); // Usuário logado
+
 export function Homepage() {
     return (
         <main className={styles.pageContainer}>

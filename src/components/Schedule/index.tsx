@@ -2,7 +2,7 @@ import { Button, Card, CardGroup, Container, Form } from "react-bootstrap";
 import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
-import eduarda from "/eduarda.jpg";
+import eduarda from "../../img/eduarda.jpg";
 import api from '../../services/api'
 
 export function Schedule() {
@@ -26,14 +26,14 @@ export function Schedule() {
     const role = localStorage.getItem('role')
     const photo = localStorage.getItem('photo')
 
-    async function scheduleMentor(){
+    async function scheduleMentor() {
         const bodyRequest = {
             day: "2022-04-14T13:00:00.969Z",
-	        start_time: "2022-04-15T15:00:00.969Z",
-	        end_time: "2022-04-15T15:30:00.969Z",
-	        description: "Dúvida na introdução do artigo",
-	        userId1: userId,
-	        userId2: mentorId
+            start_time: "2022-04-15T15:00:00.969Z",
+            end_time: "2022-04-15T15:30:00.969Z",
+            description: "Dúvida na introdução do artigo",
+            userId1: userId,
+            userId2: mentorId
         }
 
         console.log(bodyRequest)

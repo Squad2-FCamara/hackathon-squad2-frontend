@@ -9,8 +9,8 @@ export function SearchProvider({ children }: any) {
 
     const getSearchResult = async (searchText: any) => {
         try {
-            const baseURL = "https://fcamara-squad2.herokuapp.com/"
-            const res = await api.get( baseURL + `profile/feature/${searchText.toLowerCase()}`)
+
+            const res = await api.get(`/profile/feature/${searchText.toLowerCase()}`)
             const data = res.data
             setSearchResult(data)
         } catch (error) {
@@ -23,5 +23,4 @@ export function SearchProvider({ children }: any) {
             {children}
         </SearchContext.Provider>
     )
-
 }

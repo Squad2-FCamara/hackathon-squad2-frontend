@@ -1,16 +1,15 @@
 import { useContext } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import capitalizeText from '../../services/capitalizeText'
 import { SearchContext } from '../../context/SearchContext'
 import styles from './styles.module.scss'
 import error from '../../img/error.png'
+import abstractUser from '../../img/abstract-user.svg'
 
-type User = {
-    profile: any
-}
 
 export function SearchResults() {
-    const { searchResult, data } = useContext(SearchContext);
+    const { searchResult } = useContext(SearchContext);
 
     function schedule(user: any) {
         console.log(user.user.id)
@@ -19,13 +18,12 @@ export function SearchResults() {
 
     return (
         <section className={styles.section}>
-            {data
-                ?
+            {!searchResult.length ? (
                 <div className={styles.msgError}>
-                    <h2>Vixe! Não encontramos resultados para sua pesquisa.</h2>
+                    <h2 className={styles.errorTitle}>Vixe! Não encontramos resultados para sua pesquisa.</h2>
                     <img src={error} className={styles.img} />
                 </div>
-                :
+            ) : (
                 <>
                     <h2 className={styles.sectionName}>Sangues Laranjas que mais se encaixam na sua pesquisa:</h2>
                     {searchResult.map((user: any, index: any) => {
@@ -65,9 +63,7 @@ export function SearchResults() {
                         )
                     })}
                 </>
-            }
-
-
+            )}  
         </section >
     )
 }

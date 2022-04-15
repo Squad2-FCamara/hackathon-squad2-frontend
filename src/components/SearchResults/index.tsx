@@ -17,20 +17,20 @@ export function SearchResults() {
     }
 
     return (
-        <section className={styles.section}>
+        <section className={styles.section} role="main">
             {!searchResult.length ? (
                 <div className={styles.msgError}>
-                    <h2 className={styles.errorTitle}>Vixe! Não encontramos resultados para sua pesquisa.</h2>
-                    <img src={error} className={styles.img} />
+                    <h1 className={styles.errorTitle}>Vixe! Não encontramos resultados para sua pesquisa.</h1>
+                    <img src={error} className={styles.img} alt="Imagem de erro, mostrando um rosto azul triste avisando que não há resultado para a busca" />
                 </div>
             ) : (
                 <>
-                    <h2 className={styles.sectionName}>Sangues Laranjas que mais se encaixam na sua pesquisa:</h2>
+                    <h1 className={styles.sectionName}>Sangues Laranjas que mais se encaixam na sua pesquisa:</h1>
                     <Row lg={"auto"} md={2} xs={1} className={`g-4 ${styles.cardRow}`}>
                         {searchResult.map((item: any, index: any) => {
                             const nickname = capitalizeText(item.nickname)
                             return (
-                                <Col key={index}>
+                                <Col key={index} className={styles.col}>
                                     <Card className={styles.card}>
                                         <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={item.photo || abstractUser} alt={`Foto de perfil ${nickname}`} />
                                         <Card.Body className={styles.bodyStyle}>

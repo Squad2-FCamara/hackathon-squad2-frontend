@@ -23,6 +23,7 @@ body {
 }
 
 .errorTitle {
+  font-size: 1.5rem;
   margin-bottom: 5rem;
 }
 
@@ -37,7 +38,6 @@ body {
 .cardRow {
   display: flex;
   justify-content: center;
-  align-content: center;
 
   .card {
     display: flex;
@@ -121,8 +121,39 @@ body {
   }
 }
 
-@media screen and (min-width: 800px) {
-  .container {
-    margin: 1em 2em;
+@media (max-width: 390px) {
+  
+  .section {
+    .sectionName{
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
   }
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cardRow {
+    display: flex;
+
+    .card {
+      width: 15rem;
+    }
+
+    button {
+      width: 12rem;
+      font-size: .9rem;
+    }
+  }
+
+  .msgError {
+    .errorTitle{
+      font-size: 1rem;
+    }
+    .img {
+      width: 20rem;
+    }
+  }
+
 }

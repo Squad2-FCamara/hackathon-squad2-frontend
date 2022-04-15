@@ -1,4 +1,3 @@
-
 .header {
   display: flex;
   justify-content: center;
@@ -7,40 +6,42 @@
   width: 100%;
   top: 0;
   z-index: 99;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
   a {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
     text-decoration: none;
-    color: var(--white);
+    color: var(--white)
   }
+
   .navbar {
     width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
+
   .navList {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 45%;
   }
-  .navList > * + * {
+
+  .navList>*+* {
     margin-left: 1.25rem;
-  
+
   }
+
   .photo {
     padding: 0.125rem;
     border-radius: 2rem;
     width: 4.25rem;
     height: 4.25rem;
-  }
-  .navbarCollapse {
-    justify-content: space-around;
   }
 }
 
@@ -55,7 +56,7 @@
     width: 32.813rem;
     padding-right: 2.2rem;
     box-sizing: border-box;
-    border: 1.05px solid var( --gray-400);
+    border: 1.05px solid var(--gray-400);
     background-color: var(--white);
     border-radius: 1rem;
   }

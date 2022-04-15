@@ -33,7 +33,7 @@ export function Header() {
 
     return (
         <header className={styles.header}>
-            <Navbar expand="md" className={styles.navbar}>
+            <Navbar expand="md" variant="dark" className={styles.navbar}>
                 <Container>
                     <Navbar.Brand>
                         <NavLink to={"/"} aria-label="logo"><img src={logo} className={styles.logo} alt="Logo branco contendo as letras T e S para Technical Share"/></NavLink>
@@ -41,7 +41,7 @@ export function Header() {
                     <Navbar.Brand className={styles.wrapperPhoto}>
                         <Image src={persona} className={styles.photo} alt="Foto de perfil do usuário logado" />
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.toggle} />
+                    <Navbar.Toggle  aria-controls="basic-navbar-nav" className={styles.toggle} />
                     <Navbar.Collapse id="basic-navbar-nav" className={styles.collapse}>
                         <Form onSubmit={handleSubmit} className={styles.form}>
                             <FormControl

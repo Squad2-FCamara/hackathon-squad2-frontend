@@ -1,9 +1,8 @@
-import { format, parseJSON } from "date-fns";
-import { ptBR } from "date-fns/locale";
 import { useState } from "react";
 import { ToggleButton } from "react-bootstrap";
 import { useQuery } from "react-query";
 import api from "../../services/api";
+import { formatHour } from "../../utils/formatHour";
 import styles from "./styles.module.scss";
 
 type AvailabilityFriendProfile = {
@@ -21,7 +20,8 @@ type Profile = {
             availability: {
                 id: number,
                 day: Date,
-                hour: Date
+                start_time: Date,
+                end_time: Date
             }
         }
     ]
@@ -29,7 +29,7 @@ type Profile = {
 
 export function HoursButton() {
     const { data } = useQuery<AvailabilityFriendProfile>('availabilities', async () => {
-        const response = await api.get('http://localhost:4000/user/availability/1')
+        const response = await api.get('/user/availability/1')
         console.log(response.data)
         return response.data;
     }, {
@@ -41,6 +41,9 @@ export function HoursButton() {
     return (
         <>
             {data?.user.Profile.ProfileAvailability.map((item, idx) => {
+                let startTime = formatHour(item.availability.start_time);
+                let endTime = formatHour(item.availability.end_time);
+
                 return (
                     <ToggleButton
                         key={idx}
@@ -52,7 +55,7 @@ export function HoursButton() {
                         onChange={(e) => setRadioValue(Number(e.currentTarget.value))}
                         className={styles.availabilityButton}
                     >
-                        {format(parseJSON(item.availability.hour), "kk:mm", { locale: ptBR })}
+                        {`${startTime} - ${endTime}`}
                     </ToggleButton>
                 )
             })}

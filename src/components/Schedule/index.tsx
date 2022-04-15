@@ -2,7 +2,7 @@ import { Button, Card, CardGroup, Container, Form } from "react-bootstrap";
 import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
-import eduarda from "/eduarda.jpg";
+import eduarda from "../../img/eduarda.jpg";
 
 export function Schedule() {
     return (

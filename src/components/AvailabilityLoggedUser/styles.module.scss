@@ -1,5 +1,23 @@
+.availabilityContainer {
+    background: var(--background2);
+    border-radius: 1.5rem;
+    width: 20rem;
+}
+
 .availability {
     display: flex;
     gap: 1rem;
     flex-direction: column;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--gray-100);
+}
+
+.badge {
+    font-size: 1rem;
+    padding: 0.5rem;
 }

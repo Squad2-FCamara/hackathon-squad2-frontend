@@ -11,10 +11,6 @@ type User = {
 
 export function SearchResults() {
     const { searchResult } = useContext(SearchContext);
-    
-    // searchResult.map((user: any) => {
-    //     console.log(user.nickname);
-    // })
 
     return (
         <section>
@@ -24,7 +20,7 @@ export function SearchResults() {
                     return (
                         <Col key={index}>
                             <Card style={{ width: '19.125rem', height: '30.188rem' }} className={styles.card} >
-                                <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={user.photo} alt={`Foto de perfil ${user.nickname}`} />
+                                <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={user.photo} alt={`Foto de perfil ${user.nickname}`} X-Content-Type-Options="nosniff" />
                                 <Card.Body className={styles.bodyStyle}>
                                     <Card.Title className={styles.name}>{user.nickname}</Card.Title>
 

@@ -9,9 +9,10 @@ export function SearchProvider({ children }: any) {
 
     const getSearchResult = async (searchText: any) => {
         try {
-            const res = await api.get(`/profile/skill/${searchText.toLowerCase()}`)
+            const baseURL = "https://fcamara-squad2.herokuapp.com/"
+            const res = await api.get( baseURL + `profile/feature/${searchText.toLowerCase()}`)
             const data = res.data
-            console.log(data)
+            console.log(data);
             setSearchResult(data)
         } catch (error) {
             console.log('Não foi possível encontrar o resultado da busca...')

@@ -12,8 +12,10 @@ import styles from "./styles.module.scss";
 // comparar data e mostrar apenas os horários para o dia selecionado
 
 export function AvailabilityLoggedUser() {
+    const userId = localStorage.getItem('userId')
+    console.log(userId)
     const { data } = useQuery<AvailabilityProfile>('availabilitiesLoggedUser', async () => {
-        const response = await api.get('/user/availability/2')
+        const response = await api.get(`/user/availability/${userId}`)
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute

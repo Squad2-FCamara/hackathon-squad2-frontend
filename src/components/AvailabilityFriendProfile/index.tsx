@@ -31,9 +31,11 @@ export type Profile = {
 //fazer requisição no banco de dados referente àquele id
 //trazer os resultados de horários disponíveis
 
+
 export function AvailabilityFriendProfile() {
+    const mentorId = localStorage.getItem('mentorId')
     const { data } = useQuery<AvailabilityProfile>('availabilitiesFriends', async () => {
-        const response = await api.get('/user/availability/1')
+        const response = await api.get(`/user/availability/${mentorId}`)
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute

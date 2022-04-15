@@ -1,7 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 import api from "../../services/api";
-import capitalizeText from "../../services/capitalizeText";
+import capitalizeText from "../../utils/capitalizeText";
 import styles from "./styles.module.scss";
 import empty from "../../img/schedules-empty.svg";
 import { formatDay } from "../../utils/formatDay";

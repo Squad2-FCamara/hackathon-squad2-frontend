@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import capitalizeText from '../../services/capitalizeText'
+import capitalizeText from '../../utils/capitalizeText'
 import { SearchContext } from '../../context/SearchContext'
 import styles from './styles.module.scss'
 import error from '../../img/error.png'

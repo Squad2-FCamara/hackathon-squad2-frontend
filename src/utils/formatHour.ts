@@ -1,6 +1,6 @@
 import { format, parseJSON } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { ptBR, ja, ca } from "date-fns/locale";
 
 export function formatHour(date: Date) {
-    return format(parseJSON(date), "kk:mm", { locale: ptBR })
+    return format(parseJSON(date), "kk:mm", { locale: ca })
 }

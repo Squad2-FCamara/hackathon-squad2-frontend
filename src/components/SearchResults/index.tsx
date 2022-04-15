@@ -12,6 +12,11 @@ type User = {
 export function SearchResults() {
     const { searchResult, data } = useContext(SearchContext);
 
+    function schedule(user: any) {
+        console.log(user.user.id)
+        localStorage.setItem('mentorId', user.user.id)
+    }
+
     return (
         <section className={styles.section}>
             {data
@@ -47,11 +52,13 @@ export function SearchResults() {
                                                         return item.skill.name.toUpperCase()
                                                     }).join(' | ')}
                                                 </Card.Text>
-                                                <Link to={"/schedule"}><Button type="button" className={styles.button}>Agendar mentoria</Button></Link>
-
+                                                <Link to={"/schedule"}>
+                                                    <Button type="button" className={styles.button} onClick={() => schedule(user)}>
+                                                        Agendar mentoria
+                                                    </Button>
+                                                </Link>
                                             </Card.Body>
                                         </Card>
-
                                     </Col>
                                 </Row>
                             </>

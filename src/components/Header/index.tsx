@@ -57,24 +57,24 @@ export function Header() {
                             style={({ isActive }) => isActive ? activeStyle : deactivateStyle}>
                             <HouseDoor
                                 className={styles.houseDoor}
-                                style={{ fontSize: '2rem' }}
+                                style={{ fontSize: '1rem' }}
                                 aria-label="Página Inicial " />Home
                         </NavLink>
                         <NavLink to={"/"}>
                             <People className={styles.people}
-                                style={{ fontSize: '2rem' }}
+                                style={{ fontSize: '1rem' }}
                                 aria-label="Fórum" />Fórum
                         </NavLink>
                         <NavLink to={"/"}>
                             <Book
                                 className={styles.book}
-                                style={{ fontSize: '2rem' }}
-                                aria-label="Dicas de estudo" />Dicas de estudos
+                                style={{ fontSize: '1rem' }}
+                                aria-label="Guia de estudo" />Dicas de estudos
                         </NavLink>
                         <NavLink to={"/"}>
                             <Bell
                                 className={styles.bell}
-                                style={{ fontSize: '2rem' }}
+                                style={{ fontSize: '1rem' }}
                                 aria-label="Notificações" />Notificações
                         </NavLink>
                     </Nav>

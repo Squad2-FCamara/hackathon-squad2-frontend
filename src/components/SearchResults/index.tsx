@@ -19,38 +19,40 @@ export function SearchResults() {
                     <img src={error} className={styles.img} />
                 </div>
             ) : (
-                <Row lg={"auto"} md={2} xs={1} className={`g-4 ${styles.cardRow}`}>
-                    {searchResult.map((item: any, index: any) => {
-                        const nickname = capitalizeText(item.nickname)
-                        return (
-                            <Col key={index}>
-                                <Card className={styles.card} >
-                                    <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={item.photo} alt={`Foto de perfil ${nickname}`} />
-                                    <Card.Body className={styles.bodyStyle}>
-                                        <Card.Title className={styles.name}>{nickname}</Card.Title>
-                                        <Card.Title className={styles.email}>{item.user.email}</Card.Title>
-                                        <hr />
-                                        <Card.Title className={styles.title}>Cargo</Card.Title>
-                                        <Card.Text className={styles.text}>
-                                            {capitalizeText(item.Role.name)}
-                                        </Card.Text>
-                                        <Card.Title className={styles.title}>Senioridade</Card.Title>
-                                        <Card.Text className={styles.text}>
-                                            {capitalizeText(item.seniority)}
-                                        </Card.Text>
-                                        <Card.Title className={styles.title}>Principais Skills</Card.Title>
-                                        <Card.Text className={styles.text}>
-                                            {item.ProfileSkill.map((item: any) => {
-                                                return item.skill.name.toUpperCase()
-                                            }).join(' | ')}
-                                        </Card.Text>
-                                        <Link to={"/schedule"} className={styles.button}>Agendar mentoria</Link>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        )
-                    })}
-                </Row>
+                <>
+                    <h2 className={styles.sectionName}>Sangues Laranjas que mais se encaixam na sua pesquisa:</h2>
+                    <Row lg={"auto"} md={2} xs={1} className={`g-4 ${styles.cardRow}`}>
+                        {searchResult.map((item: any, index: any) => {
+                            const nickname = capitalizeText(item.nickname)
+                            return (
+                                <Col key={index}>
+                                    <Card className={styles.card}>
+                                        <Card.Img variant="top" className={`rounded-circle ${styles.photo}`} src={item.photo || abstractUser} alt={`Foto de perfil ${nickname}`} />
+                                        <Card.Body className={styles.bodyStyle}>
+                                            <Card.Title className={styles.name}>{nickname}</Card.Title>
+                                            <Card.Title className={styles.email}>{item.user.email}</Card.Title>
+                                            <hr />
+                                            <Card.Title className={styles.title}>Cargo</Card.Title>
+                                            <Card.Text className={styles.text}>
+                                                {capitalizeText(item.Role.name)}
+                                            </Card.Text>
+                                            <Card.Title className={styles.title}>Senioridade</Card.Title>
+                                            <Card.Text className={styles.text}>
+                                                {capitalizeText(item.seniority)}
+                                            </Card.Text>
+                                            <Card.Title className={styles.title}>Principais Skills</Card.Title>
+                                            <Card.Text className={styles.text}>
+                                                {item.ProfileSkill.map((item: any) => {
+                                                    return item.skill.name.toUpperCase()
+                                                }).join(' | ')}
+                                            </Card.Text>
+                                            <Link to={"/schedule"} className={styles.button}>Agendar mentoria</Link>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            )
+                        })}
+                    </Row></>
             )}
         </section >
     )

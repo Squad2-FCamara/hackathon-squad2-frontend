@@ -1,15 +1,12 @@
-import { SyntheticEvent, useContext } from "react"
-import { Nav, Navbar, Image, Form, FormControl, Button, InputGroup } from "react-bootstrap"
+import { useContext } from "react"
+import { Nav, Navbar, Image, Form, FormControl } from "react-bootstrap"
 import { NavLink, useNavigate } from "react-router-dom"
 import { SearchContext } from "../../context/SearchContext"
 import { Bell, Book, HouseDoor, People, Search } from "react-bootstrap-icons"
 import styles from "./styles.module.scss"
-import persona from "/eduarda.jpg"
-import logo from "/logo.png"
+import persona from "../../img/eduarda.jpg"
+import logo from "../../img/logo.svg"
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle"
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse"
-
-
 
 export function Header() {
     const { getSearchResult } = useContext(SearchContext);

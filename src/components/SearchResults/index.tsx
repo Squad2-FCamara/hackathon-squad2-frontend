@@ -5,6 +5,7 @@ import capitalizeText from '../../services/capitalizeText'
 import { SearchContext } from '../../context/SearchContext'
 import styles from './styles.module.scss'
 import error from '../../img/error.png'
+import abstractUser from '../../img/abstract-user.svg'
 
 
 export function SearchResults() {

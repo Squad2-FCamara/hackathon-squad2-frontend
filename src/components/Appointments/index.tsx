@@ -42,8 +42,9 @@ type Profile = {
 }
 
 export function Appointments() {
+    const mentorId = localStorage.getItem('mentorId')
     const { data } = useQuery<Appointments>('appointments', async () => {
-        const response = await api.get('/user/schedule/1')
+        const response = await api.get(`/user/schedule/${mentorId}`)
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute
@@ -64,7 +65,7 @@ export function Appointments() {
                     let userSchedule = item.schedule.UserSchedule
 
                     return (
-                        <Card className={styles.appointmentContainer}>
+                        <Card className={styles.appointmentContainer} key={item.schedule.id}>
                             <Card.Title className={styles.dateTitle}>
                                 <Card.Text style={{ margin: '0' }}>
                                     {`${formatDay(item.schedule.day)}`}
@@ -81,7 +82,7 @@ export function Appointments() {
                             {userSchedule.map(element => {
                                 if (item.user.id != element.user.id) {
                                     return (
-                                        <Card.Body style={{ padding: '0' }}>
+                                        <Card.Body style={{ padding: '0' }} key={element.user.id}>
                                             <Card.Title>
                                                 {`
                                                     ${element.user.name} 

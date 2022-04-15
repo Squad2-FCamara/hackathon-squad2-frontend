@@ -1,15 +1,12 @@
-import { SyntheticEvent, useContext } from "react"
-import { Nav, Navbar, Image, Form, FormControl, Button, InputGroup } from "react-bootstrap"
+import { useContext } from "react"
+import { Nav, Navbar, Image, Form, FormControl } from "react-bootstrap"
 import { NavLink, useNavigate } from "react-router-dom"
 import { SearchContext } from "../../context/SearchContext"
 import { Bell, Book, HouseDoor, People, Search } from "react-bootstrap-icons"
 import styles from "./styles.module.scss"
-import persona from "/eduarda.jpg"
-import logo from "/logo.png"
+import persona from "../../img/eduarda.jpg"
+import logo from "../../img/logo.svg"
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle"
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse"
-
-
 
 export function Header() {
     const { getSearchResult } = useContext(SearchContext);
@@ -20,11 +17,8 @@ export function Header() {
 
         const form = e.target
         const formData = new FormData(form)
-        console.log(formData);
-        
         const text = formData.get('search-input')
-        console.log(text);
-        
+
         await getSearchResult(text)
 
         form.reset()
@@ -41,16 +35,14 @@ export function Header() {
     return (
         <header className={styles.header}>
             <Navbar collapseOnSelect expand="sm" className={styles.navbar} >
-            <NavLink to={"/"}><img src={logo} /></NavLink>
-                <NavbarToggle aria-controls="responsive-navbar-nav"/>
-                <Navbar.Collapse id="responsive-navbar-nav">
+                <NavLink to={"/"}><img src={logo} /></NavLink>
+                <NavbarToggle aria-controls="responsive-navbar-nav" />
                 <Form onSubmit={handleSubmit} className={styles.form}>
                     <FormControl
                         type="search"
                         placeholder="Pesquisar Sangue Laranja por nome, habilidades..."
                         className={styles.inputBox}
                         aria-label="Campo de pesquisa"
-                        // onChange={handleInput}
                         name="search-input"
                     />
                     <Search style={{ position: 'absolute', right: '1rem' }} />
@@ -75,16 +67,13 @@ export function Header() {
                             style={{ fontSize: '2rem' }}
                             aria-label="Dicas de estudo" />Dicas de estudos
                     </NavLink>
-
                     <NavLink to={"/"}>
                         <Bell
                             className={styles.bell}
                             style={{ fontSize: '2rem' }}
                             aria-label="Notificações" />Notificações
                     </NavLink>
-                    
                 </Nav>
-                </Navbar.Collapse>
                 <Image src={persona} className={styles.photo} alt="Foto de perfil do usuário logado" />
             </Navbar>
         </header>

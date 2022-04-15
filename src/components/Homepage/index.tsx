@@ -6,10 +6,12 @@ import { Appointments } from "../Appointments";
 import { AvailabilityLoggedUser } from "../AvailabilityLoggedUser";
 import { Calendar } from "../Calendar";
 
-import jeronimo from '/jeronimo.jpg';
-import luiza from '/luiza.jpg';
-import marcelina from '/marcelina.jpg';
+import jeronimo from '../../img/jeronimo.jpg';
+import luiza from '../../img/luiza.jpg';
+import marcelina from '../../img/marcelina.jpg';
 import owl from '../../img/happy-owl.svg'
+
+localStorage.setItem('userId', '2'); // Usuário logado
 
 export function Homepage() {
     return (

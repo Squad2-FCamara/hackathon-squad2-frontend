@@ -11,6 +11,7 @@ export function SearchProvider({ children }: any) {
         try {
             const urlBase = "https://fcamara-squad2.herokuapp.com/";
             const res = await api.get(urlBase + `profile/feature/${searchText.toLowerCase()}`)
+        
             const data = res.data
             setSearchResult(data)
         } catch (error) {
@@ -24,5 +25,4 @@ export function SearchProvider({ children }: any) {
             {children}
         </SearchContext.Provider>
     )
-
 }

@@ -7,6 +7,8 @@
   width: 100%;
   top: 0;
   z-index: 99;
+  padding-left: 5rem;
+  padding-right: 5rem;
   a {
     display: flex;
     flex-direction: column;
@@ -23,8 +25,9 @@
   }
   .navList {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 45%;
   }
   .navList > * + * {
     margin-left: 1.25rem;
@@ -35,6 +38,9 @@
     border-radius: 2rem;
     width: 4.25rem;
     height: 4.25rem;
+  }
+  .navbarCollapse {
+    justify-content: space-around;
   }
 }
 
@@ -54,15 +60,4 @@
     border-radius: 1rem;
   }
 
-}
-
-
-@media  (max-width: 480px) {
-  body {
-    background-color: aqua;
-  }
- .photo {
-  width: 2rem;
-  height: 2rem;
- }
 }

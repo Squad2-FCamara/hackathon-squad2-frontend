@@ -3,12 +3,12 @@
     justify-content: center;
     padding: 2rem;
     gap: 2rem;
-    height: 92vh;
 }
 
 .scheduleContainer {
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
     padding: 3rem;
     color: var(--text-light);
     background: var(--background);
@@ -35,45 +35,77 @@
             gap: 1rem;
         }
     }
-}
 
-.formStyle {
-    width: 36.5rem;
-    height: 7rem;
-    background: var(--text-secondary);
-    border-radius: 1.5rem;
-    color: var(--gray-100);
-}
-
-.userCardContainer {
-    display: flex;
-    align-items: center;
-
-    .userContainer {
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-        gap: 1rem;
-        background: var(--background);
+    .formStyle {
+        width: 36.5rem;
+        height: 7rem;
+        background: var(--text-secondary);
         border-radius: 1.5rem;
         color: var(--gray-100);
 
-        .photo {
-            padding: 2px;
-            background: linear-gradient(100deg, #ff008e 0%, #ffcd1e 100%);
-            border-radius: 50%;
-            width: 7rem;
-            height: 7rem;
+        &::placeholder {
+            color: #8d8d99;
+        }
+
+        &:focus {
+            color: var(--gray-100);
+            background: var(--text-secondary);
+            outline-color: var(--primary-05);
         }
     }
 }
 
-.buttonStyle {
+.userCardContainer {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background: var(--primary-05);
-    border-radius: 1rem;
+    width: 26rem;
+    background: var(--background);
+    border-radius: 1.5rem;
+
+    .userContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        gap: 1rem;
+        color: var(--text-light);
+        width: 100%;
+
+        .photo {
+            border-radius: 50%;
+            width: 7rem;
+            height: 7rem;
+            border: 4px solid var(--secondary-07);
+        }
+
+        hr {
+            position: absolute;
+            left: 15.62%;
+            right: 15.38%;
+            bottom: 63.59%;
+            border: 1px solid var(--gray-100);
+        }
+
+    }
+
+    .infoContainer {
+        display: flex;
+        background: var(--background);
+        color: var(--text-light);
+        height: 100%;
+        padding: 2rem;
+        border-radius: 1.5rem;
+
+        .buttonStyle {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            padding: 1rem;
+            padding: 6px 85px;
+            background: var(--primary-05);
+            border-radius: 1rem;
+            width: 20rem;
+        }
+    }
 }

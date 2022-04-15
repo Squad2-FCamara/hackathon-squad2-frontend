@@ -1,11 +1,28 @@
+import { Link } from 'react-router-dom';
 import { Button, Card, CardGroup, Container, Form } from "react-bootstrap";
+import axios from "axios";
 import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
-import eduarda from "../../img/eduarda.jpg";
-import api from '../../services/api'
-import { Link } from 'react-router-dom';
-import axios from "axios";
+import api from '../../services/api';
+import abstractUser from '../../img/abstract-user.svg'
+
+type UserData = {
+    user: {
+        id: number,
+        name: string,
+        email: string,
+        Profile: {
+            nickname: string,
+            seniority: string,
+            id: number,
+            photo: string,
+            Role: {
+                name: string
+            }
+        }
+    }
+}
 
 export function Schedule() {
 
@@ -13,13 +30,13 @@ export function Schedule() {
     const userId = Number(localStorage.getItem('userId'));
 
     async function getSearchResult() {
-        const dataMentor = await api.get(`/user/id/${mentorId}`);
+        const dataMentor = await api.get<UserData>(`/user/id/${mentorId}`);
         console.log(dataMentor)
         console.log(dataMentor.data.user.Profile.nickname);
         localStorage.setItem('nickname', dataMentor.data.user.Profile.nickname);
         localStorage.setItem('email', dataMentor.data.user.email);
         localStorage.setItem('role', dataMentor.data.user.Profile.Role.name);
-        localStorage.setItem('photo', dataMentor.data.user.photo);
+        localStorage.setItem('photo', dataMentor.data.user.Profile.photo);
     }
     getSearchResult();
 
@@ -38,9 +55,9 @@ export function Schedule() {
             userId2: mentorId
         }
 
-        
+
         console.log(bodyRequest)
-        const response =  axios({
+        const response = axios({
             method: 'post',
             url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
             data: bodyRequest
@@ -80,7 +97,7 @@ export function Schedule() {
             <section >
                 <Card className={styles.userCardContainer}>
                     <Container className={styles.userContainer}>
-                        <Card.Img variant="top" src={eduarda} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
+                        <Card.Img variant="top" src={photo || abstractUser} className={styles.photo} alt={`Foto do perfil de ${nickname}`} />
 
                         <Card.Title style={{ fontWeight: '700', fontSize: '1.3rem' }} >
                             {nickname}

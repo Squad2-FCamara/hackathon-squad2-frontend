@@ -1,33 +1,66 @@
+html {
+    font-size: 16px;
+}
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.containerAux {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: min(100%, 79.25rem);
+}
+
 .pageContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 2rem;
     gap: 2rem;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
 }
 
 .scheduleContainer {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    padding: 3rem;
+    padding: 2rem 5rem 3rem 5rem;
     color: var(--text-light);
     background: var(--background);
     border-radius: 1.7rem;
+    width: min(100%, 46.5rem);
+
+    h2 {
+        font-size: 1.125rem;
+    }
 
     h1 {
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         text-shadow: 0px 4px 4px var(--background);
     }
 
-    h2 {
-        font-size: 1rem;
-    }
 
     .calendarContainer {
         padding: 1rem;
+        display: flex;
+
 
         .calendarCardContainer {
+            width: min(100%, 17rem);
             background: var(--background);
             display: flex;
             flex-direction: column;
@@ -37,7 +70,6 @@
     }
 
     .formStyle {
-        width: 36.5rem;
         height: 7rem;
         background: var(--text-secondary);
         border-radius: 1.5rem;
@@ -108,4 +140,39 @@
             width: 20rem;
         }
     }
+}
+
+@media only screen and (max-width: 360px){
+
+    .containerAux {
+        display: block;
+    }
+
+    .container1 {
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .pageContainer {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .scheduleContainer {
+        display: block;
+        padding: 1rem;
+    }
+
+    .calendarContainer {
+        padding: 1rem;
+        width: 100px;
+    }
+
+    .userCardContainer {
+        margin-top: 1rem;
+        width: 20.5rem;
+    }
+
 }

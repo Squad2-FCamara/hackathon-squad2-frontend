@@ -3,6 +3,7 @@
     background: var(--text-dark);
     box-shadow: 0 0.3rem 0.3rem var(--background);
     border-radius: 1rem;
+    width: min(100%, 19.125rem);
 }
 
 .monthTitleContainer {
@@ -56,5 +57,15 @@
 
     &:hover {
         background-color: var(--text-secondary);
+    }
+}
+
+@media only screen and (max-width: 360px){
+    .calendarContainer {
+        padding: 1rem;
+        background: var(--text-dark);
+        box-shadow: 0 0.3rem 0.3rem var(--background);
+        border-radius: 1rem;
+        width: 7rem;
     }
 }

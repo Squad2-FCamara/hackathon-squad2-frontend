@@ -4,8 +4,10 @@ import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
 import eduarda from "/eduarda.jpg";
 import api from '../../services/api'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Schedule() {
 
@@ -14,8 +16,6 @@ export function Schedule() {
 
     async function getSearchResult() {
         const dataMentor = await api.get(`/user/id/${mentorId}`);
-        console.log(dataMentor)
-        console.log(dataMentor.data.user.Profile.nickname);
         localStorage.setItem('nickname', dataMentor.data.user.Profile.nickname);
         localStorage.setItem('email', dataMentor.data.user.email);
         localStorage.setItem('role', dataMentor.data.user.Profile.Role.name);
@@ -27,110 +27,123 @@ export function Schedule() {
     const email = localStorage.getItem('email')
     const role = localStorage.getItem('role')
     const photo = localStorage.getItem('photo')
+    const navigate = useNavigate();
 
-    async function scheduleMentor(){
+    async function scheduleMentor() {
         const bodyRequest = {
             day: "2022-04-14T13:00:00.969Z",
-	        start_time: "2022-04-15T15:00:00.969Z",
-	        end_time: "2022-04-15T15:30:00.969Z",
-	        description: "Dúvida no método post",
-	        userId1: userId,
-	        userId2: mentorId
+            start_time: "2022-04-15T15:00:00.969Z",
+            end_time: "2022-04-15T15:30:00.969Z",
+            description: "Dúvida no método post",
+            userId1: userId,
+            userId2: mentorId
+        }
+        
+        try{
+            const response = await axios({
+                method: 'post',
+                url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
+                data: bodyRequest
+            })
+            console.log(response.statusText)
+            console.log("dentro do try")
+            const aux = toast("Agendamento marcado com sucesso", { autoClose: 2500, pauseOnHover: false });
+            const timer = setTimeout(() => {
+                navigate('/');
+            }, 3500);
+        } catch (e) {
+            toast("Não foi possível fazer o agendamento",  { autoClose: 2500, pauseOnHover: false })
+            throw new Error('Ocorreu um erro')         
         }
 
-        
-        console.log(bodyRequest)
-        const response =  axios({
-            method: 'post',
-            url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
-            data: bodyRequest
-        })
-        console.log(response)
-    }
+}
 
-    return (
-        <main className={styles.pageContainer}>
-            <section className={styles.scheduleContainer}>
-                <h1>Bora agendar uma mentoria?</h1>
-                <h2>Escolha o dia que mais dá match entre suas agendas</h2>
 
-                <CardGroup className={styles.calendarContainer}>
-                    <Card style={{ border: '0' }} >
-                        <Card.Body className={styles.calendarCardContainer}>
-                            <Calendar />
-                        </Card.Body>
-                    </Card>
 
-                    <AvailabilityFriendProfile />
-                </CardGroup>
+return (
+    <main className={styles.pageContainer}>
+        <section className={styles.scheduleContainer}>
+            <h1>Bora agendar uma mentoria?</h1>
+            <h2>Escolha o dia que mais dá match entre suas agendas</h2>
 
-                <Form.Group className="mb-3" controlId="formText">
-                    <Form.Label style={{ fontWeight: '700' }}>
-                        Qual é o assunto?
-                    </Form.Label>
-
-                    <Form.Control
-                        type="text"
-                        placeholder="Escreva aqui o assunto da mentoria"
-                        className={styles.formStyle}
-                    />
-                </Form.Group>
-            </section>
-
-            <section >
-                <Card className={styles.userCardContainer}>
-                    <Container className={styles.userContainer}>
-                        <Card.Img variant="top" src={eduarda} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
-
-                        <Card.Title style={{ fontWeight: '700', fontSize: '1.3rem' }} >
-                            {nickname}
-                        </Card.Title>
-
-                        <Card.Text>
-                            {email}<br />
-                            {role}
-                        </Card.Text>
-
-                        <Card.Title style={{ fontWeight: '700' }}>
-                            <hr />
-                            Resumo do agendamento
-                        </Card.Title>
-                    </Container>
-
-                    <Card className={styles.infoContainer}>
-                        <Card.Title style={{ fontWeight: '700' }}>
-                            Data
-                        </Card.Title>
-                        <Card.Text>
-                            30 Outubro 2021
-                        </Card.Text>
-
-                        <Card.Title style={{ fontWeight: '700' }}>
-                            Horário
-                        </Card.Title>
-                        <Card.Text>
-                            16:00 - 16:30
-                        </Card.Text>
-
-                        <Card.Title style={{ fontWeight: '700' }}>
-                            Onde?
-                        </Card.Title>
-                        <Card.Text>
-                            Teams
-                        </Card.Text>
-
-                        <Card.Title style={{ fontWeight: '700' }}>
-                            Assunto
-                        </Card.Title>
-                        <Card.Text>
-                            Gostaria de entender melhor como usar o Java.
-                        </Card.Text>
-                        <Link to={"/"}>
-                            <Button variant="outline-dark" className={styles.buttonStyle} onClick={scheduleMentor}>Marcar mentoria</Button>
-                        </Link>
-                    </Card>
+            <CardGroup className={styles.calendarContainer}>
+                <Card style={{ border: '0' }} >
+                    <Card.Body className={styles.calendarCardContainer}>
+                        <Calendar />
+                    </Card.Body>
                 </Card>
-            </section>
-        </main >
-    )
+
+                <AvailabilityFriendProfile />
+            </CardGroup>
+
+            <Form.Group className="mb-3" controlId="formText">
+                <Form.Label style={{ fontWeight: '700' }}>
+                    Qual é o assunto?
+                </Form.Label>
+
+                <Form.Control
+                    type="text"
+                    placeholder="Escreva aqui o assunto da mentoria"
+                    className={styles.formStyle}
+                />
+            </Form.Group>
+        </section>
+
+        <section >
+            <Card className={styles.userCardContainer}>
+                <Container className={styles.userContainer}>
+                    <Card.Img variant="top" src={eduarda} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
+
+                    <Card.Title style={{ fontWeight: '700', fontSize: '1.3rem' }} >
+                        {nickname}
+                    </Card.Title>
+
+                    <Card.Text>
+                        {email}<br />
+                        {role}
+                    </Card.Text>
+
+                    <Card.Title style={{ fontWeight: '700' }}>
+                        <hr />
+                        Resumo do agendamento
+                    </Card.Title>
+                </Container>
+
+                <Card className={styles.infoContainer}>
+                    <Card.Title style={{ fontWeight: '700' }}>
+                        Data
+                    </Card.Title>
+                    <Card.Text>
+                        30 Outubro 2021
+                    </Card.Text>
+
+                    <Card.Title style={{ fontWeight: '700' }}>
+                        Horário
+                    </Card.Title>
+                    <Card.Text>
+                        16:00 - 16:30
+                    </Card.Text>
+
+                    <Card.Title style={{ fontWeight: '700' }}>
+                        Onde?
+                    </Card.Title>
+                    <Card.Text>
+                        Teams
+                    </Card.Text>
+
+                    <Card.Title style={{ fontWeight: '700' }}>
+                        Assunto
+                    </Card.Title>
+                    <Card.Text>
+                        Gostaria de entender melhor como usar o Java.
+                    </Card.Text>
+                    {/* <Link to={"/"}> */}
+                    <Button variant="outline-dark" className={styles.buttonStyle} onClick={scheduleMentor}>Marcar mentoria</Button>
+                    {/* </Link> */}
+                </Card>
+            </Card>
+        </section>
+        <ToastContainer />
+    </main >
+)
 }

@@ -5,7 +5,7 @@ import api from "../../services/api";
 import { formatHour } from "../../utils/formatHour";
 import styles from "./styles.module.scss";
 
-type AvailabilityFriendProfile = {
+export type AvailabilityProfile = {
     user: {
         name: string,
         id: number,
@@ -14,7 +14,7 @@ type AvailabilityFriendProfile = {
     }
 }
 
-type Profile = {
+export type Profile = {
     ProfileAvailability: [
         {
             availability: {
@@ -27,10 +27,10 @@ type Profile = {
     ]
 }
 
+// hours button vai ser usado só no friendprofile
 export function HoursButton() {
-    const { data } = useQuery<AvailabilityFriendProfile>('availabilities', async () => {
+    const { data } = useQuery<AvailabilityProfile>('availabilitiesFriends', async () => {
         const response = await api.get('/user/availability/1')
-        console.log(response.data)
         return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute

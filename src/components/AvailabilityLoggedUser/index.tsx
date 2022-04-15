@@ -1,6 +1,7 @@
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 import api from "../../services/api";
+import { HourList } from "../HoursList";
 import styles from "./styles.module.scss";
 
 type Availability = {
@@ -17,6 +18,9 @@ type ProfileAvailability = {
     }
 }
 
+// passar a lógica do hour button para o hour list e renderizar na homepage
+// logged user = Aline, id 2
+// ao invés de renderizar os botões, renderizar os horários em lista não clicável
 export function AvailabilityLoggedUser() {
     const { data, isFetching } = useQuery<ProfileAvailability[]>('availabilities', async () => {
         const response = await api.get('http://localhost:4000/users')
@@ -28,10 +32,9 @@ export function AvailabilityLoggedUser() {
     })
 
     return (
-        <Card style={{ width: '20rem' }} >
+        <Card className={styles.availabilityContainer} >
             <Card.Body className={styles.availability}>
-                <Card.Title>Meus horários disponíveis:</Card.Title>
-                {isFetching && <p>Carregando</p>}
+                <Card.Title className={styles.title}>Seus horários disponíveis:</Card.Title>
                 {data?.map(user => {
                     return (
                         <div>
@@ -43,8 +46,7 @@ export function AvailabilityLoggedUser() {
                 {/* Identificar dia selecionado no calendário */}
                 {/* Pesquisar os horários cadastrados no banco referente aos meus horários disponíveis para aquele dia */}
 
-                <Button href="#" variant="outline-dark">08:00 - 08:40</Button>
-                <Button href="#" variant="outline-dark">10:20 - 10:50</Button>
+                <HourList />
             </Card.Body>
         </Card>
     )

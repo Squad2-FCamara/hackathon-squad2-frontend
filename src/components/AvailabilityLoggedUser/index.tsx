@@ -1,32 +1,20 @@
-import { Card } from "react-bootstrap";
+import { Badge, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 import api from "../../services/api";
-import { HourList } from "../HoursList";
+import { formatHour } from "../../utils/formatHour";
+import { AvailabilityProfile } from "../HoursButton";
 import styles from "./styles.module.scss";
-
-type Availability = {
-    day: string,
-    hour: string
-}
-
-type ProfileAvailability = {
-    id: number,
-    profile: {
-        profileAvailability?: [
-            availability: Availability
-        ]
-    }
-}
 
 // passar a lógica do hour button para o hour list e renderizar na homepage
 // logged user = Aline, id 2
 // ao invés de renderizar os botões, renderizar os horários em lista não clicável
-export function AvailabilityLoggedUser() {
-    const { data, isFetching } = useQuery<ProfileAvailability[]>('availabilities', async () => {
-        const response = await api.get('http://localhost:4000/users')
+// Identificar dia selecionado no calendário
+// comparar data e mostrar apenas os horários para o dia selecionado
 
-        console.log(response.data)
-        return response.data
+export function AvailabilityLoggedUser() {
+    const { data } = useQuery<AvailabilityProfile>('availabilitiesLoggedUser', async () => {
+        const response = await api.get('/user/availability/2')
+        return response.data;
     }, {
         staleTime: 1000 * 60, //cache 1 minute
     })
@@ -35,18 +23,17 @@ export function AvailabilityLoggedUser() {
         <Card className={styles.availabilityContainer} >
             <Card.Body className={styles.availability}>
                 <Card.Title className={styles.title}>Seus horários disponíveis:</Card.Title>
-                {data?.map(user => {
+
+                {data?.user.Profile.ProfileAvailability.map(item => {
+                    let startTime = formatHour(item.availability.start_time);
+                    let endTime = formatHour(item.availability.end_time);
+
                     return (
-                        <div>
-                            {user.id}
-                        </div>
+                        <Badge pill bg="secondary" text="dark" className={styles.badge} key={item.availability.id}>
+                            {`${startTime} - ${endTime}`}
+                        </Badge>
                     )
                 })}
-
-                {/* Identificar dia selecionado no calendário */}
-                {/* Pesquisar os horários cadastrados no banco referente aos meus horários disponíveis para aquele dia */}
-
-                <HourList />
             </Card.Body>
         </Card>
     )

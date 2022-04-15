@@ -53,6 +53,14 @@
 }
 
 @media(max-width: 390px) {
+    .imgContainer {
+        .fontSize {
+            font-size: 1.1rem;
+        }
+        .img {
+            height: 7rem;
+        }
+    } 
     .appointmentContainer {
         .dateTitle {
             font-size: 1rem;
@@ -60,14 +68,7 @@
         .infoCard {
             font-size: .9rem;
         }
-        .imgContainer {
-            .fontSize {
-                font-size: 0.9rem;
-            }
-            .img {
-                height: 6rem;
-            }
-        }
+    
         .buttonsContainer {
             display: flex;
             flex-direction: column;

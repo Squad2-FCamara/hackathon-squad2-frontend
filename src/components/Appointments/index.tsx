@@ -1,6 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import { useQuery } from "react-query";
 import api from "../../services/api";
+import capitalizeText from "../../utils/capitalizeText";
 import styles from "./styles.module.scss";
 import empty from "../../img/schedules-empty.svg";
 import { formatDay } from "../../utils/formatDay";
@@ -56,8 +57,8 @@ export function Appointments() {
                 ?
                 <Card className={styles.imgContainer}>
                     <Card.Img src={empty} className={styles.img} />
-                    <Card.Text style={{ fontSize: '1.2rem' }}>
-                        Você ainda não tem agendamentos
+                    <Card.Text className={styles.fontSize}>
+                        Você ainda não tem agendamentos.
                     </Card.Text>
                 </Card>
                 :
@@ -83,19 +84,19 @@ export function Appointments() {
                                 if (item.user.id != element.user.id) {
                                     return (
                                         <Card.Body style={{ padding: '0' }} key={element.user.id}>
-                                            <Card.Title>
+                                            <Card.Title className={styles.infoCard}>
                                                 {`
-                                                    ${element.user.name} 
-                                                    - ${element.user.Profile.Role.name} 
-                                                    - ${element.user.Profile.seniority}
+                                                    ${capitalizeText(element.user.name)} 
+                                                    - ${capitalizeText(element.user.Profile.Role.name)} 
+                                                    - ${capitalizeText(element.user.Profile.seniority)}
                                                 `}
                                             </Card.Title>
 
-                                            <Card.Subtitle>
+                                            <Card.Subtitle className={styles.infoCard}>
                                                 {element.user.email}
                                             </Card.Subtitle>
 
-                                            <Card.Text style={{ marginTop: '1rem' }}>
+                                            <Card.Text style={{ marginTop: '1rem', fontSize: '.8rem' }}>
                                                 {item.schedule.description}
                                             </Card.Text>
 

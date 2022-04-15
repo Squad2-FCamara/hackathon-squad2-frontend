@@ -11,10 +11,9 @@ import { SearchProvider } from './context/SearchContext';
 axe(React, ReactDOM, 1000);
 
 ReactDOM.render(
-  <React.StrictMode>
+
     <SearchProvider>
       <App />
-    </SearchProvider>
-  </React.StrictMode>,
+    </SearchProvider>,
   document.getElementById('root')
 )

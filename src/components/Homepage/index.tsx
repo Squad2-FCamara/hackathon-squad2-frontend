@@ -19,28 +19,28 @@ export function Homepage() {
             <section className={styles.sidebarContainer}>
                 <Card className={styles.messageContainer}>
                     <div>
-                        <Card.Title style={{ fontSize: '3rem' }}>
+                        <Card.Title className={styles.fontSize}>
                             Olá,
                         </Card.Title>
 
-                        <Card.Text style={{ fontSize: '1.25rem' }}>
+                        <Card.Text  className={styles.textMessage}>
                             espero que o seu dia seja lindo!
                         </Card.Text>
                     </div>
                     <Card.Img variant="top" src={owl} className={styles.image} alt="Uma coruja ouvindo música." />
                 </Card>
-
+                <div className={styles.wrapperCards}>
                 <Card className={styles.genericCard}>
                     <Card.Body>
                         <Card.Title className={styles.title}>
-                            Perguntas no Fórum
+                            Perguntas feitas no Fórum
                         </Card.Title>
 
-                        <Card.Text>
+                        <Card.Text className={styles.textCard}>
                             Feitas 0
                         </Card.Text>
 
-                        <Card.Text>
+                        <Card.Text className={styles.textCard}>
                             Respondidas 0
                         </Card.Text>
                     </Card.Body>
@@ -53,21 +53,22 @@ export function Homepage() {
                         </Card.Title>
 
                         <Card.Text>
-                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={marcelina} className={styles.photo} alt="Marcelina é uma mulher branca, tem os cabelos ondulados, está num ambiente interno e sorrindo." />
+                            <Card.Img  variant="top" src={marcelina} className={styles.photo} alt="Marcelina é uma mulher branca, tem os cabelos ondulados, está num ambiente interno e sorrindo." />
                             Marcelina Silva
                         </Card.Text>
 
                         <Card.Text>
-                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={luiza} className={styles.photo} alt="Luíza é uma mulher branca, tem os cabelos liso, está num ambiente externo usando batom vermelho e sorrindo." />
+                            <Card.Img  variant="top" src={luiza} className={styles.photo} alt="Luíza é uma mulher branca, tem os cabelos liso, está num ambiente externo usando batom vermelho e sorrindo." />
                             Luíza Fernanda
                         </Card.Text>
 
                         <Card.Text>
-                            <Card.Img style={{ width: '2.5rem', height: '2.5rem' }} variant="top" src={jeronimo} className={styles.photo} alt="Jerônimo é um homem negro, tem barba, está sério, num ambiente externo e usando um chapeu." />
+                            <Card.Img  variant="top" src={jeronimo} className={styles.photo} alt="Jerônimo é um homem negro, tem barba, está sério, num ambiente externo e usando um chapeu." />
                             Jerônimo Cristino
                         </Card.Text>
                     </Card.Body>
                 </Card>
+                </div>
             </section>
 
             <section className={styles.contentContainer}>

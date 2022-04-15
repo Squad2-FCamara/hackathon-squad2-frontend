@@ -56,8 +56,8 @@ export function Appointments() {
                 ?
                 <Card className={styles.imgContainer}>
                     <Card.Img src={empty} className={styles.img} />
-                    <Card.Text style={{ fontSize: '1.2rem' }}>
-                        Você ainda não tem agendamentos
+                    <Card.Text className={styles.fontSize}>
+                        Você ainda não tem agendamentos.
                     </Card.Text>
                 </Card>
                 :
@@ -83,7 +83,7 @@ export function Appointments() {
                                 if (item.user.id != element.user.id) {
                                     return (
                                         <Card.Body style={{ padding: '0' }} key={element.user.id}>
-                                            <Card.Title>
+                                            <Card.Title className={styles.infoCard}>
                                                 {`
                                                     ${element.user.name} 
                                                     - ${element.user.Profile.Role.name} 
@@ -91,7 +91,7 @@ export function Appointments() {
                                                 `}
                                             </Card.Title>
 
-                                            <Card.Subtitle>
+                                            <Card.Subtitle className={styles.infoCard}>
                                                 {element.user.email}
                                             </Card.Subtitle>
 

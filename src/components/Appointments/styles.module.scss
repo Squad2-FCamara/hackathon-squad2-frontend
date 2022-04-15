@@ -6,7 +6,9 @@
     align-items: center;
     border: none;
     gap: 1rem;
-
+    .fontSize {
+        font-size: 1.2rem;
+    }
     .img {
         height: 10rem;
         width: 15rem;
@@ -46,4 +48,49 @@
             color: var(--black);
         }
     }
+ 
+}
+
+@media(max-width: 480px) {
+    .appointmentContainer {
+        flex-direction: column;
+       padding: 0.8rem;
+        
+        .dateTitle {
+            font-size: 12px;
+        }
+        .infoCard {
+            font-size: 11px;
+        }
+    }
+
+    .imgContainer {
+        .fontSize {
+            font-size: 0.9rem;
+        }
+        .img {
+        height: 6rem;
+        }
+        
+    }
+
+    .buttonsContainer {
+        display: flex;
+        justify-content: flex-end;
+       
+        
+        :first-child {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        :last-child {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+        }
+    }
+    
 }

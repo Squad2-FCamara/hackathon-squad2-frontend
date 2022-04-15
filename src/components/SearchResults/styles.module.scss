@@ -1,3 +1,11 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .section {
   color: var(--gray-100);
   display: flex;
@@ -79,6 +87,10 @@
     font-size: 1rem;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   .button {
     background-color: var(--primary-05);
     color: var(--black);
@@ -106,5 +118,11 @@
   .button:focus {
     outline: none;
     box-shadow: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    margin: 1em 2em;
   }
 }

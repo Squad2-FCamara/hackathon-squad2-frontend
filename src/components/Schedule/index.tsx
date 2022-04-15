@@ -1,9 +1,31 @@
+import { Link } from 'react-router-dom';
 import { Button, Card, CardGroup, Container, Form } from "react-bootstrap";
 import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
-import eduarda from "/eduarda.jpg";
-import api from '../../services/api'
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import api from '../../services/api';
+import abstractUser from '../../img/abstract-user.svg'
+
+type UserData = {
+    user: {
+        id: number,
+        name: string,
+        email: string,
+        Profile: {
+            nickname: string,
+            seniority: string,
+            id: number,
+            photo: string,
+            Role: {
+                name: string
+            }
+        }
+    }
+}
 
 export function Schedule() {
 
@@ -11,13 +33,11 @@ export function Schedule() {
     const userId = Number(localStorage.getItem('userId'));
 
     async function getSearchResult() {
-        const dataMentor = await api.get(`/user/id/${mentorId}`);
-        console.log(dataMentor)
-        console.log(dataMentor.data.user.Profile.nickname);
+        const dataMentor = await api.get<UserData>(`/user/id/${mentorId}`);
         localStorage.setItem('nickname', dataMentor.data.user.Profile.nickname);
         localStorage.setItem('email', dataMentor.data.user.email);
         localStorage.setItem('role', dataMentor.data.user.Profile.Role.name);
-        localStorage.setItem('photo', dataMentor.data.user.photo);
+        localStorage.setItem('photo', dataMentor.data.user.Profile.photo);
     }
     getSearchResult();
 
@@ -25,25 +45,38 @@ export function Schedule() {
     const email = localStorage.getItem('email')
     const role = localStorage.getItem('role')
     const photo = localStorage.getItem('photo')
+    const navigate = useNavigate();
 
-    async function scheduleMentor(){
+    async function scheduleMentor() {
         const bodyRequest = {
             day: "2022-04-14T13:00:00.969Z",
-	        start_time: "2022-04-15T15:00:00.969Z",
-	        end_time: "2022-04-15T15:30:00.969Z",
-	        description: "Dúvida na introdução do artigo",
-	        userId1: userId,
-	        userId2: mentorId
+            start_time: "2022-04-15T15:00:00.969Z",
+            end_time: "2022-04-15T15:30:00.969Z",
+            description: "Dúvida no método post",
+            userId1: userId,
+            userId2: mentorId
         }
 
-        console.log(bodyRequest)
-        const response = api.post('/user/schedule', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(bodyRequest),
-        })
-        console.log(response)
+        try {
+            const response = await axios({
+                method: 'post',
+                url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
+                data: bodyRequest
+            })
+            console.log(response.statusText)
+            console.log("dentro do try")
+            const aux = toast("Agendamento marcado com sucesso", { autoClose: 3000, pauseOnHover: false });
+            const timer = setTimeout(() => {
+                navigate('/');
+            }, 3500);
+        } catch (e) {
+            toast("Não foi possível fazer o agendamento", { autoClose: 3000, pauseOnHover: false })
+            throw new Error('Ocorreu um erro')
+        }
+
     }
+
+
 
     return (
         <main className={styles.pageContainer}>
@@ -77,7 +110,7 @@ export function Schedule() {
             <section >
                 <Card className={styles.userCardContainer}>
                     <Container className={styles.userContainer}>
-                        <Card.Img variant="top" src={eduarda} className={styles.photo} alt="Eduarda é uma mulher negra, tem os cabelos cacheados, está num ambiente externo usando óculos escuros e sorrindo." />
+                    <Card.Img variant="top" src={photo || abstractUser} className={styles.photo} alt={`Foto do perfil de ${nickname}`} />
 
                         <Card.Title style={{ fontWeight: '700', fontSize: '1.3rem' }} >
                             {nickname}
@@ -122,11 +155,13 @@ export function Schedule() {
                         <Card.Text>
                             Gostaria de entender melhor como usar o Java.
                         </Card.Text>
-
+                        {/* <Link to={"/"}> */}
                         <Button variant="outline-dark" className={styles.buttonStyle} onClick={scheduleMentor}>Marcar mentoria</Button>
+                        {/* </Link> */}
                     </Card>
                 </Card>
             </section>
+            <ToastContainer />
         </main >
     )
 }

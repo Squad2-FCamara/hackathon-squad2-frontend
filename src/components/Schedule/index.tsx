@@ -63,20 +63,13 @@ export function Schedule() {
                 url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
                 data: bodyRequest
             })
-            console.log(response.statusText)
-            console.log("dentro do try")
             toast("Agendamento marcado com sucesso", { autoClose: 3000, pauseOnHover: false });
-            const timer = setTimeout(() => {
-                navigate('/');
-            }, 3500);
+            navigate('/');
         } catch (e) {
             toast("Não foi possível fazer o agendamento", { autoClose: 3000, pauseOnHover: false })
             throw new Error('Ocorreu um erro')
         }
-
     }
-
-
 
     return (
         <main className={styles.pageContainer}>

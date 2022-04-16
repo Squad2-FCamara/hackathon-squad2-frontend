@@ -51,7 +51,11 @@ export function SearchResults() {
                                                     return item.skill.name.toUpperCase()
                                                 }).join(' | ')}
                                             </Card.Text>
-                                            <Link to={"/schedule"} className={styles.button}>Agendar mentoria</Link>
+                                            <Link to={"/schedule"} className={styles.button}>
+                                                <Button onClick={schedule}>
+                                                    Agendar mentoria
+                                                </Button>
+                                            </Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>

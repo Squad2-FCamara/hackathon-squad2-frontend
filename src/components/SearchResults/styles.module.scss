@@ -103,6 +103,11 @@ body {
     justify-content: center;
     text-decoration: none;
     align-self: center;
+
+    button {
+      background-color: transparent;
+      border: none;
+    }
   }
 
   .button:hover {
@@ -122,13 +127,14 @@ body {
 }
 
 @media (max-width: 390px) {
-  
+
   .section {
-    .sectionName{
+    .sectionName {
       font-size: 1.1rem;
       font-weight: 600;
     }
   }
+
   .col {
     display: flex;
     justify-content: center;
@@ -148,9 +154,10 @@ body {
   }
 
   .msgError {
-    .errorTitle{
+    .errorTitle {
       font-size: 1rem;
     }
+
     .img {
       width: 20rem;
     }

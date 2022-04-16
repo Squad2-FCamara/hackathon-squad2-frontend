@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import capitalizeText from '../../utils/capitalizeText'
@@ -6,14 +6,19 @@ import { SearchContext } from '../../context/SearchContext'
 import styles from './styles.module.scss'
 import error from '../../img/error.png'
 import abstractUser from '../../img/abstract-user.svg'
+import api from '../../services/api'
 
 
 export function SearchResults() {
     const { searchResult } = useContext(SearchContext);
 
-    function schedule(user: any) {
-        console.log(user.user.id)
+    async function schedule(user: any) {
         localStorage.setItem('mentorId', user.user.id)
+        const dataMentor = await api.get(`/user/id/${user.user.id}`);
+        localStorage.setItem('nickname', dataMentor.data.user.Profile.nickname);
+        localStorage.setItem('email', dataMentor.data.user.email);
+        localStorage.setItem('role', dataMentor.data.user.Profile.Role.name);
+        localStorage.setItem('photo', dataMentor.data.user.Profile.photo);
     }
 
     return (
@@ -51,7 +56,11 @@ export function SearchResults() {
                                                     return item.skill.name.toUpperCase()
                                                 }).join(' | ')}
                                             </Card.Text>
-                                            <Link to={"/schedule"} className={styles.button}>Agendar mentoria</Link>
+                                            <Link to={"/schedule"} className={styles.button}>
+                                                <Button onClick={() => schedule(item)}>
+                                                    Agendar mentoria
+                                                </Button>
+                                            </Link>
                                         </Card.Body>
                                     </Card>
                                 </Col>

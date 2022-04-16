@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom';
-import { Button, Card, CardGroup, Col, Container, Form } from "react-bootstrap";
+import { Button, Card, CardGroup, Container, Form, Toast } from "react-bootstrap";
 import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
-import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import api from '../../services/api';
 import abstractUser from '../../img/abstract-user.svg'
+import { useNavigate } from "react-router-dom";
 
 type UserData = {
     user: {
@@ -27,11 +26,12 @@ type UserData = {
     }
 }
 
+const mentorId = Number(localStorage.getItem('mentorId'));
+const userId = Number(localStorage.getItem('userId'));
+
+
+
 export function Schedule() {
-
-    const mentorId = Number(localStorage.getItem('mentorId'));
-    const userId = Number(localStorage.getItem('userId'));
-
     async function getSearchResult() {
         const dataMentor = await api.get<UserData>(`/user/id/${mentorId}`);
         localStorage.setItem('nickname', dataMentor.data.user.Profile.nickname);
@@ -63,20 +63,13 @@ export function Schedule() {
                 url: 'https://fcamara-squad2.herokuapp.com/user/schedule',
                 data: bodyRequest
             })
-            console.log(response.statusText)
-            console.log("dentro do try")
-            const aux = toast("Agendamento marcado com sucesso", { autoClose: 3000, pauseOnHover: false });
-            const timer = setTimeout(() => {
-                navigate('/');
-            }, 3500);
+            toast("Agendamento marcado com sucesso", { autoClose: 3000, pauseOnHover: false });
+            navigate('/');
         } catch (e) {
             toast("Não foi possível fazer o agendamento", { autoClose: 3000, pauseOnHover: false })
             throw new Error('Ocorreu um erro')
         }
-
     }
-
-
 
     return (
         <main className={styles.pageContainer}>
@@ -84,17 +77,6 @@ export function Schedule() {
                 <section className={styles.scheduleContainer}>
                     <h1>Bora agendar uma mentoria?</h1>
                     <h2>Escolha o dia que mais dá match entre suas agendas</h2>
-
-                    {/* <CardGroup className={`${styles.calendarContainer}`}>
-                        <Col xs={8}>
-                            <Card style={{ border: '0', backgroundColor: 'black' }} >
-                                <Card.Body className={styles.calendarCardContainer}>
-                                    <Calendar />
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <AvailabilityFriendProfile />
-                    </CardGroup> */}
 
                     <div className={styles.container1}>
                         <div>
@@ -164,13 +146,12 @@ export function Schedule() {
                             <Card.Text>
                                 Gostaria de entender melhor como usar o Java.
                             </Card.Text>
-                            {/* <Link to={"/"}> */}
                             <Button variant="outline-dark" className={styles.buttonStyle} onClick={scheduleMentor}>Marcar mentoria</Button>
-                            {/* </Link> */}
                         </Card>
                     </Card>
                 </section>
             </CardGroup>
+            <ToastContainer />
         </main >
     )
 }

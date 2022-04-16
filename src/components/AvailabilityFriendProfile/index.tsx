@@ -27,11 +27,6 @@ export type Profile = {
     ]
 }
 
-//quando a pessoa clicar em "agendar mentoria", salvar o id do usuário clicado
-//fazer requisição no banco de dados referente àquele id
-//trazer os resultados de horários disponíveis
-
-
 export function AvailabilityFriendProfile() {
     const mentorId = localStorage.getItem('mentorId')
     const { data } = useQuery<AvailabilityProfile>('availabilitiesFriends', async () => {
@@ -70,32 +65,5 @@ export function AvailabilityFriendProfile() {
                 </div>
             </div>
         </div>
-
-// {/* <Card style={{ border: '0' }}>
-// <Card.Body className={styles.availabilityContainer}>
-//     <Card.Title style={{ fontWeight: '700', fontSize: '1rem' }}>Escolha o melhor horário</Card.Title>
-//     <Card.Body className={styles.availabilityCardContainer}>
-//         {data?.user.Profile.ProfileAvailability.map((item, idx) => {
-//             let startTime = formatHour(item.availability.start_time);
-//             let endTime = formatHour(item.availability.end_time);
-
-//             return (
-//                 <ToggleButton
-//                     key={idx}
-//                     id={`radio-${idx}`}
-//                     type="radio"
-//                     variant={'outline-dark'}
-//                     checked={radioValue === item.availability.id}
-//                     value={item.availability.id}
-//                     onChange={(e) => setRadioValue(Number(e.currentTarget.value))}
-//                     className={styles.availabilityButton}
-//                 >
-//                     {`${startTime} - ${endTime}`}
-//                 </ToggleButton>
-//             )
-//         })}
-//     </Card.Body>
-// </Card.Body>
-// </Card> */}
     )
 }

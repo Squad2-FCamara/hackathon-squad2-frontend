@@ -1,13 +1,13 @@
-import { Button, Card, CardGroup, Container, Form } from "react-bootstrap";
+import { Button, Card, CardGroup, Container, Form, Toast } from "react-bootstrap";
 import { AvailabilityFriendProfile } from "../AvailabilityFriendProfile";
 import { Calendar } from "../Calendar";
 import styles from "./styles.module.scss";
-import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import api from '../../services/api';
 import abstractUser from '../../img/abstract-user.svg'
+import { useNavigate } from "react-router-dom";
 
 type UserData = {
     user: {
@@ -65,7 +65,7 @@ export function Schedule() {
             })
             console.log(response.statusText)
             console.log("dentro do try")
-            const aux = toast("Agendamento marcado com sucesso", { autoClose: 3000, pauseOnHover: false });
+            toast("Agendamento marcado com sucesso", { autoClose: 3000, pauseOnHover: false });
             const timer = setTimeout(() => {
                 navigate('/');
             }, 3500);
@@ -158,6 +158,7 @@ export function Schedule() {
                     </Card>
                 </section>
             </CardGroup>
+            <ToastContainer />
         </main >
     )
 }

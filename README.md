@@ -10,6 +10,13 @@ Nela, pode-se encontrar especialistas com a habilidade que seja, e assim, marcar
   - Sass
   - Axios
   - Toastify
+
+  <p align="center">
+  <img src="./img/homepage.png" alt="homepage">
+  <img src="./img/results.png" alt="resultado de pesquisa">
+  <img src="./img/marcandomentoria.png" alt="agendamento de mentoria">
+  <img src="./img/paginadeerro.png" alt="página de erro">
+  </p>
  
   
 ## Rodando o projeto na sua máquina

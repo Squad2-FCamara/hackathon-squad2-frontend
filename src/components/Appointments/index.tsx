@@ -56,7 +56,7 @@ export function Appointments() {
             {!data
                 ?
                 <Card className={styles.imgContainer}>
-                    <Card.Img src={empty} className={styles.img} />
+                    <Card.Img src={empty} className={styles.img} alt="Imagem para representar que não mentorias agendadas. Desenho de uma mulher, de cabelo ruivo com expressão triste" />
                     <Card.Text className={styles.fontSize}>
                         Você ainda não tem agendamentos.
                     </Card.Text>

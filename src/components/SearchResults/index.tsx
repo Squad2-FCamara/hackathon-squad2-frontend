@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import capitalizeText from '../../utils/capitalizeText'
@@ -52,7 +52,7 @@ export function SearchResults() {
                                                 }).join(' | ')}
                                             </Card.Text>
                                             <Link to={"/schedule"} className={styles.button}>
-                                                <Button onClick={schedule}>
+                                                <Button onClick={() => schedule(item)}>
                                                     Agendar mentoria
                                                 </Button>
                                             </Link>

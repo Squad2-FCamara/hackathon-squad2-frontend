@@ -5,12 +5,6 @@ import { formatHour } from "../../utils/formatHour";
 import { AvailabilityProfile } from "../AvailabilityFriendProfile";
 import styles from "./styles.module.scss";
 
-// passar a lógica do hour button para o hour list e renderizar na homepage
-// logged user = Aline, id 2
-// ao invés de renderizar os botões, renderizar os horários em lista não clicável
-// Identificar dia selecionado no calendário
-// comparar data e mostrar apenas os horários para o dia selecionado
-
 export function AvailabilityLoggedUser() {
     const userId = localStorage.getItem('userId')
 
